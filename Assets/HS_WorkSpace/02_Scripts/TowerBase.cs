@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public enum TowerGrade { Epic, Legendary, Unique, Rare, Uncommon, Common }
+public enum TowerGrade { S, A, B, C }
 
 public class TowerBase : MonoBehaviour
 {
@@ -20,7 +19,6 @@ public class TowerBase : MonoBehaviour
     public int maxAttackDamage;
 
     GameObject targetMonster;
-    protected int monsterIdx = 100;
     #endregion
 
     void Start()
@@ -40,7 +38,6 @@ public class TowerBase : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        yield return new WaitUntil(() => GameManager.Instance.monsterList.Count > 0); //initial delay
         while (true)
         {
             if (GameManager.Instance.monsterList.Count > 0)
