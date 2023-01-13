@@ -20,20 +20,16 @@ public class TowerController : TowerBase
         if (collision.CompareTag("Monster"))
         {
             print("Detect Enemy");
-            monsterList.Enqueue(collision.gameObject);
+            GameManager.Instance.monsterList[collision.gameObject] = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        foreach(var go in monsterList)
+        if (collision.CompareTag("Monster"))
         {
-            if(go == collision.gameObject)
-            {
-                print("Exit");
-                monsterList.Dequeue();
-                break;
-            }
+            print("Exit Enemy");
+            GameManager.Instance.monsterList[collision.gameObject] = false;
         }
     }
 }

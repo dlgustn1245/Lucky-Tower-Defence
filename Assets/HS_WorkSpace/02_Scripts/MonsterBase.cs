@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 
 public class MonsterBase : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class MonsterBase : MonoBehaviour
         print("Hit");
         if(hp <= 0)
         {
+            GameManager.Instance.monsterList.Remove(this.gameObject);
             Destroy(this.gameObject);
             return;
         }

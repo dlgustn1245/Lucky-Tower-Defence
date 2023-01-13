@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonsterBase
 {
+    //control monster movement etc
     void Start()
     {
         

@@ -19,13 +19,13 @@ public class TowerBase : MonoBehaviour
     public int attackDamage;
     public int maxAttackDamage;
 
-    protected Queue<GameObject> monsterList = new Queue<GameObject>();
+    GameObject targetMonster;
+    protected int monsterIdx = 100;
     #endregion
-
 
     void Start()
     {
-
+        //Add monster to list each time spawned
     }
 
     void Update()
@@ -40,12 +40,20 @@ public class TowerBase : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        yield return new WaitUntil(() => monsterList.Count > 0);
+        yield return new WaitUntil(() => GameManager.Instance.monsterList.Count > 0); //initial delay
         while (true)
         {
-            if (monsterList.Count > 0)
+            if (GameManager.Instance.monsterList.Count > 0)
             {
-                Attack(monsterList.Peek());
+                foreach (var monster in GameManager.Instance.monsterList)
+                {
+                    if(monster.Value == true)
+                    {
+                        targetMonster = monster.Key;
+                        break;
+                    }
+                }
+                Attack(targetMonster);
             }
 
             yield return new WaitForSeconds(attackSpeed);
