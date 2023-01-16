@@ -8,6 +8,11 @@ public class GameManager : Singleton<GameManager>
     public int monsterCount = 0;
     int monsterCountLimit = 100;
 
+    new void Awake()
+    {
+        base.Awake();
+    }
+
     void Start()
     {
         

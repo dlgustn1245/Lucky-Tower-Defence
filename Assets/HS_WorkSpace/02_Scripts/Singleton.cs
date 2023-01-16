@@ -17,7 +17,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    void Awake()
+    protected void Awake()
     {
         if (instance != null)
         {
@@ -28,6 +28,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
         instance = GetComponent<T>();
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 }
