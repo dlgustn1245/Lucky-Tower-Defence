@@ -7,11 +7,15 @@ public class RandomSelect : MonoBehaviour
     public List<Tower> towers = new List<Tower>();
     [SerializeField]
     private int total = 0;
-    public List<Tower> result = new List<Tower>();
+    public Tower result;
+    public Transform spawnPosition;
 
+ 
     public void ResultSelect()
     {
-        result.Add(RandomTower());
+        result= RandomTower();
+        Instantiate(result.towerPrefabs, spawnPosition.position, Quaternion.identity); //생성오브젝트, 생성위치(포지션), 생성될각도
+
     }
     public Tower RandomTower() //호출시 타워 리스트에서 가중치를 통한 임의의 타워 반환
     {
@@ -21,7 +25,7 @@ public class RandomSelect : MonoBehaviour
         for (int i = 0; i < towers.Count; i++)
         {
             weight += towers[i].weight;
-            if(selectNum <= weight)                                       //가중치보다 작으면 해당 카드 반환
+            if(selectNum <= weight)                                       //가중치보다 작으면 해당 타워 반환
             {
                 Tower temp = new Tower(towers[i]);
                 return temp;

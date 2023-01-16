@@ -10,7 +10,8 @@ public enum TowerGrade { Epic, Legendary, Unique, Rare, Uncommon, Common}
 public class Tower
 {
     public string towerName;
-    public Sprite towerImage;
+    public int towerAtk;
+    public GameObject towerPrefabs;
     public TowerGrade towerGrade;
     public int weight;
 
@@ -18,7 +19,7 @@ public class Tower
     {
         //타워 목록 초기화
         this.towerName = tower.towerName;
-        this.towerImage = tower.towerImage;
+        this.towerPrefabs = tower.towerPrefabs;
         this.towerGrade = tower.towerGrade;
         this.weight = tower.weight;
     }
