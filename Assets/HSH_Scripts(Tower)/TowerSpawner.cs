@@ -6,6 +6,8 @@ public class TowerSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject towerPrefab;
+    [SerializeField]
+    private PlayerGold playerGold;
 
     public void SpawnTower()
     {

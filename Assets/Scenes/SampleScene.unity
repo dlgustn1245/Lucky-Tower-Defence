@@ -2670,11 +2670,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1830274242244947a18355b2ee62c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageTower: {fileID: 0}
-  textDamage: {fileID: 0}
-  textRate: {fileID: 0}
-  textRange: {fileID: 0}
-  textLevel: {fileID: 0}
+  imageTower: {fileID: 736530261}
+  textName: {fileID: 257612258}
+  textDamage: {fileID: 907514911}
+  textRate: {fileID: 976801911}
+  textRange: {fileID: 790916521}
+  textLevel: {fileID: 978302709}
 --- !u!114 &378737448
 MonoBehaviour:
   m_ObjectHideFlags: 0

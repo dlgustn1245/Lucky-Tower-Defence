@@ -37,14 +37,9 @@ public class ObjectDetector : MonoBehaviour
                 //타워 정보 출력
                 if (hit.transform.CompareTag("Tower"))
                 {
-                    towerDataViewer.OnPanel();
-                }
-
-                //타워 클릭 이동
-                if (hit.transform.CompareTag("Tower"))
-                {
                     selected = true;
                     target = hit.collider.gameObject;
+                    towerDataViewer.OnPanel(target.transform);
                 }
             }
         }

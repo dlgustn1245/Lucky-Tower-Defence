@@ -21,6 +21,6 @@ public class TextTMPViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textPlayerGold.text = playerGold.CurrentGuld.ToString();
+        textPlayerGold.text = playerGold.CurrentGold.ToString();
     }
 }

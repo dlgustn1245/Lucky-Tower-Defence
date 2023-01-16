@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4119892034308075597}
   - component: {fileID: 4119892034308075599}
   - component: {fileID: 4119892034308075592}
+  - component: {fileID: 3904505747640375651}
   m_Layer: 0
   m_Name: T1
   m_TagString: Tower
@@ -111,3 +112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.9796244, g: 1, b: 0, a: 1}
   outlineSize: 16
+--- !u!114 &3904505747640375651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119892034308075596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2f56c764878fe42ad6855a4b54c9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tName: T1
+  attackRate: 0.5
+  attackRange: 2
+  attackDamage: 1
