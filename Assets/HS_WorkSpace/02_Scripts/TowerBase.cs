@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public enum ETowerGrade { S, A, B, C }
+public enum Grade { S, A, B, C }
 
 public class TowerBase : MonoBehaviour
 {
     #region Fields
     [System.NonSerialized]
-    public ETowerGrade grade;
+    public Grade grade;
 
     [Header("Tower Stat")]
     public string towerName;

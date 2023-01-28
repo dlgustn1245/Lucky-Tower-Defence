@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     public Dictionary<GameObject, bool> monsterList = new Dictionary<GameObject, bool>();
     public int monsterCount = 0;
+
     int monsterCountLimit = 100;
 
     new void Awake()
@@ -17,7 +18,6 @@ public class GameManager : Singleton<GameManager>
     {
         
     }
-
     
     void Update()
     {
