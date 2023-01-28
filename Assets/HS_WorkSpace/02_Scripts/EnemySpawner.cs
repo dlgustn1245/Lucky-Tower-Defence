@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnTimer = 1.0f;
     public Vector2 spawnPos;
 
-    private Coroutine lastCoroutine;
+    Coroutine lastCoroutine;
     
     void Start()
     {
@@ -25,7 +25,8 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             print("Spawn");
-            Instantiate(enemy, spawnPos, Quaternion.identity);
+            GameObject obj = Instantiate(enemy, spawnPos, Quaternion.identity) as GameObject;
+            GameManager.Instance.monsterList.Add(obj, false);
             ++GameManager.Instance.monsterCount;
             yield return delay;
         }

@@ -1,16 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public enum Grade { S, A, B, C }
+public enum Grade { Common, Uncommon, Rare, Unique, Legendary, Epic }
 
 public class TowerBase : MonoBehaviour
 {
     #region Fields
-    [System.NonSerialized]
-    public Grade grade;
 
-    [Header("Tower Stat")]
-    public string towerName;
+    [System.NonSerialized] public Grade grade;
+
+    [Header("Tower Stat")] public string towerName;
     public float attackRange;
     public float maxAttackRange;
     public float attackSpeed;
@@ -19,11 +18,12 @@ public class TowerBase : MonoBehaviour
     public int maxAttackDamage;
 
     GameObject targetMonster;
+
     #endregion
 
     void Start()
     {
-        //Add monster to list each time spawned
+        
     }
 
     void Update()
@@ -44,12 +44,13 @@ public class TowerBase : MonoBehaviour
             {
                 foreach (var monster in GameManager.Instance.monsterList)
                 {
-                    if(monster.Value == true)
+                    if (monster.Value)
                     {
                         targetMonster = monster.Key;
                         break;
                     }
                 }
+
                 Attack(targetMonster);
             }
 

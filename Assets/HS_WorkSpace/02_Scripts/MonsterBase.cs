@@ -12,9 +12,9 @@ public class MonsterBase : MonoBehaviour
         hp -= dmg;
         if(hp <= 0)
         {
+            print("Monster Dead");
             GameManager.Instance.monsterList.Remove(this.gameObject);
             Destroy(this.gameObject);
-            return;
         }
     }
 }

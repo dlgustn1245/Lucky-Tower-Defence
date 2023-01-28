@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1117122919}
   spawnTimer: 1
-  spawnPos: {x: 5, y: 5}
+  spawnPos: {x: -3, y: -3}
 --- !u!1 &1554740210
 GameObject:
   m_ObjectHideFlags: 0
