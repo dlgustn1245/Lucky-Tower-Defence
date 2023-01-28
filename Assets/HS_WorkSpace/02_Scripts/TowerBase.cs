@@ -33,6 +33,11 @@ public class TowerBase : MonoBehaviour
 
     void Attack(GameObject monster)
     {
+        if (!monster)
+        {
+            print("No monster");
+            return;
+        }
         monster.GetComponent<MonsterController>().OnHit(attackDamage);
     }
 
@@ -50,10 +55,8 @@ public class TowerBase : MonoBehaviour
                         break;
                     }
                 }
-
                 Attack(targetMonster);
             }
-
             yield return new WaitForSeconds(attackSpeed);
         }
     }
