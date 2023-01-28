@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //타워 등급 열거형
-public enum TowerGrade { Epic, Legendary, Unique, Rare, Uncommon, Common}
+public enum TowerGrade1 { Epic, Legendary, Unique, Rare, Uncommon, Common}
 
 [System.Serializable]
 public class Tower
@@ -12,7 +12,7 @@ public class Tower
     public string towerName;
     public int towerAtk;
     public GameObject towerPrefabs;
-    public TowerGrade towerGrade;
+    public TowerGrade1 towerGrade;
     public int weight;
 
     public Tower(Tower tower)//매개변수로 타워를 받는 생성자
