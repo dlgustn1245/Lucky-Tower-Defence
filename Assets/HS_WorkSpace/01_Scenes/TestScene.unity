@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 1519831702}
   monsterCount: {fileID: 1550110966}
+  round: {fileID: 1111254565}
   currMonsterCount: 0
   currRound: 1
   gold: 0
