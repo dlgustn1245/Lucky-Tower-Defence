@@ -1551,10 +1551,10 @@ MonoBehaviour:
     enemyGrade: 1
     enemyHP: 100
   maxBoss: 1
-  maxEnemy: 40
+  maxEnemy: 10
   enemyCount: 0
   enemyIndex: 0
-  spawnTime: 1
+  spawnTime: 0.5
   wayPoints:
   - {fileID: 1705157015}
   - {fileID: 1715040671}
