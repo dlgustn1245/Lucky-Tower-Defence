@@ -8,7 +8,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (!instance)
             {
                 instance = FindObjectOfType<T>();
                 DontDestroyOnLoad(instance.gameObject);
@@ -19,7 +19,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected void Awake()
     {
-        if (instance != null)
+        if (instance)
         {
             if (instance != this)
             {
