@@ -7,7 +7,7 @@ public class ObjectDetector : MonoBehaviour
     [SerializeField]
     private TowerDataViewer towerDataViewer;
     [SerializeField]
-    private TowerSpawner towerSpawner;
+    private GameObject towerSpawner;
 
     private Camera mainCamera;
     private Ray ray;
@@ -39,7 +39,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     selected = true;
                     target = hit.collider.gameObject;
-                    towerDataViewer.OnPanel(target.transform);
+                    //towerDataViewer.OnPanel(target.transform);
                 }
             }
         }
@@ -64,11 +64,6 @@ public class ObjectDetector : MonoBehaviour
                     selected = false;
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            towerSpawner.SpawnTower();
         }
     }
 }

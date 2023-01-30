@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Tile
+  - Tower
   layers:
   - Default
   - TransparentFX
