@@ -318,34 +318,46 @@ MonoBehaviour:
   towers:
   - towerName: Comoon1
     towerAtk: 1
-    towerPrefabs: {fileID: 2323956879617101694, guid: b2368d4093f3c7f44a14ca7e0185a5ef, type: 3}
+    towerPrefabs: {fileID: 20318900104319903, guid: eb1d5e353dcc140ffb35c1ef6e6c6ee4, type: 3}
     towerGrade: 5
     weight: 50
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   - towerName: Uncommon1
     towerAtk: 10
-    towerPrefabs: {fileID: 1292941524121121182, guid: fb4349d7a26ba424bba4da9e8b1501b3, type: 3}
+    towerPrefabs: {fileID: 6305353133612263650, guid: 1a9d153bf91ea49c1a642e62ab3c7fbc, type: 3}
     towerGrade: 4
     weight: 30
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   - towerName: Rare1
     towerAtk: 20
-    towerPrefabs: {fileID: 6838386119965768085, guid: a56b1a2616c8cfd41af0bca079c9e8b1, type: 3}
+    towerPrefabs: {fileID: 6967628631858518913, guid: 99be223f8c3204971864a7b55e933ca4, type: 3}
     towerGrade: 3
     weight: 10
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   - towerName: Unique1
     towerAtk: 40
-    towerPrefabs: {fileID: 3619455900628482855, guid: 01c241023029aca4a8a3e1fa8388705b, type: 3}
+    towerPrefabs: {fileID: 934588086600273802, guid: b46c6c79b42244e86879128a3ac4349b, type: 3}
     towerGrade: 2
     weight: 5
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   - towerName: Legendary1
     towerAtk: 100
-    towerPrefabs: {fileID: 3758974493700761612, guid: bf9bf27e16b8bbb49bf5eae7592200c6, type: 3}
+    towerPrefabs: {fileID: 4159498073184220499, guid: 493d763a1424d4c0b87f68b2c3eb415f, type: 3}
     towerGrade: 1
     weight: 0
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   - towerName: Epic1
     towerAtk: 1000
-    towerPrefabs: {fileID: 5826047636380366284, guid: b98ba8506b601aa41834e0561de4a7ac, type: 3}
+    towerPrefabs: {fileID: 3295682045106090261, guid: 1f5493845d3724a0e81905564b689c12, type: 3}
     towerGrade: 0
     weight: 1
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   total: 0
   result:
     towerName: 
@@ -353,6 +365,8 @@ MonoBehaviour:
     towerPrefabs: {fileID: 0}
     towerGrade: 0
     weight: 0
+    towerMoveSpeed: 0
+    towerAtkSpeed: 0
   spawnPosition: {fileID: 146269817}
 --- !u!4 &662381072
 Transform:
