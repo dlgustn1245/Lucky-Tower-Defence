@@ -5,8 +5,10 @@ using UnityEngine;
 public class RandomTower : MonoBehaviour
 {
     public List<Tower> towers = new List<Tower>();
+
     [SerializeField]
     private int total = 0;
+
     public Tower result;
     public Transform spawnPosition;
 

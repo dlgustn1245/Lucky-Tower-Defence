@@ -1187,11 +1187,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8698957122616527109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1efb0a42309a53e4abcb57b17a13c975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  towers: []
 --- !u!1 &8698957122631048667
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,14 +9,42 @@ public class ClickMoving : MonoBehaviour
     private bool isMove;
     private Vector3 destination;
 
-    private Ray ray;
-    private RaycastHit hit;
-
+    //마우스가 선택한 오브젝트
     private GameObject target;
     private bool selected = false;
 
-    private Vector3 mousePos, transPos, destPos;
+    public GameObject[] towers;
 
+    private Vector3 mousePos, transPos, destPos;
+    private Vector3 startPos;
+
+    private GameObject GetClickedObject()
+    {
+        RaycastHit hit;
+
+        GameObject target = null;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        /*if (gameObject.tag == "Tower")
+        {
+            target = gameObject;
+            Debug.Log(target.name);
+        }*/
+
+        if (Physics.Raycast(ray, out hit, 100f))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            //타워 정보 출력
+            if (hit.transform.CompareTag("Tower"))
+            {
+                selected = true;
+                target = hit.collider.gameObject;
+                //towerDataViewer.OnPanel(target.transform);
+            }
+        }
+
+        return target;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,17 +54,15 @@ public class ClickMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //왼쪽 클릭
+        //오른쪽 클릭
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            target = GetClickedObject();
 
-            if (Physics.Raycast(ray, out hit))
+            if (true == target.Equals(gameObject))
             {
-                string objectName = hit.collider.gameObject.name;
-                Debug.Log(objectName);
+                selected = true;
             }
-            selected = true;
         }
         ///오른쪽 클릭
         if (Input.GetMouseButtonDown(0) && selected == true)
