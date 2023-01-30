@@ -14,6 +14,8 @@ public class Tower
     public GameObject towerPrefabs;
     public TowerGrade1 towerGrade;
     public int weight;
+    public float towerMoveSpeed;
+    public float towerAtkSpeed;
 
     public Tower(Tower tower)//매개변수로 타워를 받는 생성자
     {
@@ -22,5 +24,8 @@ public class Tower
         this.towerPrefabs = tower.towerPrefabs;
         this.towerGrade = tower.towerGrade;
         this.weight = tower.weight;
+        this.towerMoveSpeed = tower.towerMoveSpeed;
+        this.towerAtkSpeed = tower.towerAtkSpeed;
+
     }
 }
