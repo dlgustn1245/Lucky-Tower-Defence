@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8698957122616527109, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: m_Name
-      value: Hero Female Enforcer Variant
+      value: Unique1
       objectReference: {fileID: 0}
     - target: {fileID: 8725109316641294308, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: m_labelHash

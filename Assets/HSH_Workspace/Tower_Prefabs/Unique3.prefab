@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_Name
-      value: Hero Male Enforcer Variant 1
+      value: Unique3
       objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_RootOrder
@@ -134,6 +134,14 @@ PrefabInstance:
     - target: {fileID: 5856735160117056536, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_labelHash
       value: -6.946781e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831882847739180946, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0570126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831882847739180946, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Center.y
+      value: 1.4703852
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
