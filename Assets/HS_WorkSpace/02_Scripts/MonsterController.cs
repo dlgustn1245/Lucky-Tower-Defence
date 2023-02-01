@@ -28,9 +28,9 @@ public class MonsterController : MonoBehaviour
             --GameManager.Instance.currMonsterCount;
             ++GameManager.Instance.killedMonster;
             GameManager.Instance.SetMonsterCountText();
-            if (GameManager.Instance.killedMonster % 5 == 0)
+            if (GameManager.Instance.killedMonster % 2 == 0)
             {
-                GameManager.Instance.gold += 2;
+                ++GameManager.Instance.gold;
                 print(GameManager.Instance.gold);
             }
             Destroy(this.gameObject);
