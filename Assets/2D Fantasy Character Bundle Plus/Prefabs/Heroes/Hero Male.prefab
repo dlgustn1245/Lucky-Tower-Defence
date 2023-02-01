@@ -174,9 +174,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2628789413488488937}
   - component: {fileID: 2676512530365212267}
-  - component: {fileID: 311523207308458214}
-  - component: {fileID: 4733044809760638148}
-  - component: {fileID: 2952956579999374267}
+  - component: {fileID: 7940292604137252895}
+  - component: {fileID: 8903073701632115599}
   m_Layer: 0
   m_Name: Hero Male
   m_TagString: Tower
@@ -219,7 +218,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!61 &311523207308458214
+--- !u!61 &7940292604137252895
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1759333, y: 1.5833994}
+  m_Offset: {x: -0.03233266, y: 1.5627433}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -243,9 +242,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7916998, y: 3.287133}
+  m_Size: {x: 2.4010801, y: 3.2201736}
   m_EdgeRadius: 0
---- !u!50 &4733044809760638148
+--- !u!50 &8903073701632115599
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -266,20 +265,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2952956579999374267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2627549628363405301}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1efb0a42309a53e4abcb57b17a13c975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  towers: []
 --- !u!1 &2627549628501495275
 GameObject:
   m_ObjectHideFlags: 0

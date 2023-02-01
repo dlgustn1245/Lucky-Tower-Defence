@@ -6,45 +6,16 @@ public class ClickMoving : MonoBehaviour
 {
     public Camera cam;
 
-    private bool isMove;
-    private Vector3 destination;
-
-    //∏∂øÏΩ∫∞° º±≈√«— ø¿∫Í¡ß∆Æ
+    //ÌÅ¥Î¶≠Îêú Ïò§Î∏åÏ†ùÌä∏
     private GameObject target;
     private bool selected = false;
 
     public GameObject[] towers;
 
     private Vector3 mousePos, transPos, destPos;
-    private Vector3 startPos;
 
-    private GameObject GetClickedObject()
-    {
-        RaycastHit hit;
+    Vector2 MousePosition;
 
-        GameObject target = null;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-        /*if (gameObject.tag == "Tower")
-        {
-            target = gameObject;
-            Debug.Log(target.name);
-        }*/
-
-        if (Physics.Raycast(ray, out hit, 100f))
-        {
-            Debug.Log(hit.collider.gameObject.name);
-            //≈∏øˆ ¡§∫∏ √‚∑¬
-            if (hit.transform.CompareTag("Tower"))
-            {
-                selected = true;
-                target = hit.collider.gameObject;
-                //towerDataViewer.OnPanel(target.transform);
-            }
-        }
-
-        return target;
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -54,25 +25,33 @@ public class ClickMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ø¿∏•¬  ≈¨∏Ø
+        //Ïò§Î•∏Ï™Ω Î≤ÑÌäº
         if (Input.GetMouseButtonDown(1))
         {
-            target = GetClickedObject();
+            Vector2 touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(touchPos, cam.transform.forward);
 
-            if (true == target.Equals(gameObject))
+            if (hit.collider != null)
             {
+                Debug.Log(hit.collider.name);
                 selected = true;
+                target = hit.collider.gameObject;
+                Debug.Log(target);
             }
         }
-        ///ø¿∏•¬  ≈¨∏Ø
+        //ÏôºÏ™Ω Î≤ÑÌäº
         if (Input.GetMouseButtonDown(0) && selected == true)
         {
-            CalDestPos();
-        }
+            MousePosition = Input.mousePosition;
+            MousePosition = cam.ScreenToWorldPoint(MousePosition);
+
+			transform.position = MousePosition;
+            Debug.Log(MousePosition);
+		}
 
         if (selected == true)
         {
-            MoveToDest();
+            //MoveToDest();
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -84,12 +63,14 @@ public class ClickMoving : MonoBehaviour
     void CalDestPos()
     {
         mousePos = Input.mousePosition;
-        transPos = Camera.main.ScreenToWorldPoint(mousePos);
+        transPos = cam.ScreenToWorldPoint(mousePos);
         destPos = new Vector3(transPos.x, transPos.y, 0);
     }
 
     void MoveToDest()
     {
-        transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * 10f);
+        target.transform.position = mousePos;
+        //transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * 10f);
     }
+
 }
