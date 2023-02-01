@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public EnemyGrade BossGrade = EnemyGrade.Boss; // Boss 등급 열거형 변수
-    public List<Enemy> Enemys = new List<Enemy>(); // Enemy클래스를 사용
+    public List<Enemy> Enemies = new List<Enemy>(); // Enemy클래스를 사용
     [SerializeField]
     private int maxBoss = 1; 
     private int bossCount = 0;
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     {
         // 적 리스트 메모리 할당
         enemyList = new List<EnemyMove>();
-        StartCoroutine("SpawnEnemy");
+        StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
@@ -36,10 +36,10 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             // 보스일경우
-            if (Enemys[enemyIndex].enemyGrade == BossGrade)
+            if (Enemies[enemyIndex].enemyGrade == BossGrade)
             {
                 //보스 소환
-                GameObject clonBoss = Instantiate(Enemys[enemyIndex].enemyPrefabs);
+                GameObject clonBoss = Instantiate(Enemies[enemyIndex].enemyPrefabs);
                 EnemyMove bossMove = clonBoss.GetComponent<EnemyMove>();
                 bossMove.Setup(this, wayPoints);
                 enemyList.Add(bossMove);
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 enemyCount++;
-                GameObject clon = Instantiate(Enemys[enemyIndex].enemyPrefabs);
+                GameObject clon = Instantiate(Enemies[enemyIndex].enemyPrefabs);
                 EnemyMove enemyMove = clon.GetComponent<EnemyMove>();
                 enemyMove.Setup(this, wayPoints);
                 enemyList.Add(enemyMove);
@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
 
             if(enemyCount == maxEnemy || bossCount==1)
             {
-                if (enemyIndex == Enemys.Count || bossCount == maxBoss)
+                if (enemyIndex == Enemies.Count || bossCount == maxBoss)
                 {
                     StopCoroutine("SpawnEnemy");
                 }

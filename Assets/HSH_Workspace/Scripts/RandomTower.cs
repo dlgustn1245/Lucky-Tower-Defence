@@ -4,35 +4,32 @@ using UnityEngine;
 
 public class RandomTower : MonoBehaviour
 {
-    public List<Tower> towers = new List<Tower>();
-
-    [SerializeField]
-    private int total = 0;
-
-    public Tower result;
+    public List<GameObject> towers = new List<GameObject>();
     public Transform spawnPosition;
 
+    int total = 0;
+    GameObject result;
 
     public void ResultSelect()
     {
-        result = Random_Tower();
-        Instantiate(result.towerPrefabs, spawnPosition.position, Quaternion.identity); //»ı¼º¿ÀºêÁ§Æ®, »ı¼ºÀ§Ä¡(Æ÷Áö¼Ç), »ı¼ºµÉ°¢µµ
-
+        result = GetRandomTower();
+        Instantiate(result, spawnPosition.position, Quaternion.identity); //ìƒì„±ì˜¤ë¸Œì íŠ¸, ìƒì„±ìœ„ì¹˜(í¬ì§€ì…˜), ìƒì„±ë ê°ë„
     }
-    public Tower Random_Tower() //È£Ãâ½Ã Å¸¿ö ¸®½ºÆ®¿¡¼­ °¡ÁßÄ¡¸¦ ÅëÇÑ ÀÓÀÇÀÇ Å¸¿ö ¹İÈ¯
+
+    public GameObject GetRandomTower() //í˜¸ì¶œì‹œ íƒ€ì›Œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ê°€ì¤‘ì¹˜ë¥¼ í†µí•œ ì„ì˜ì˜ íƒ€ì›Œ ë°˜í™˜
     {
-        int weight = 0;                                                   //°¡ÁßÄ¡ º¯¼ö
-        int selectNum = 0;
-        selectNum = Mathf.RoundToInt(total * Random.Range(0.0f, 1.0f));      //½Ç¼ö 0~1»çÀÌÀÇ ÀÓÀÇÀÇ°ªÀ» total¿¡ °öÇÔ
+        int weight = 0; //ê°€ì¤‘ì¹˜ ë³€ìˆ˜
+        int selectNum = Mathf.RoundToInt(total * Random.Range(0.0f, 1.0f)); //ì‹¤ìˆ˜ 0~1ì‚¬ì´ì˜ ì„ì˜ì˜ê°’ì„ totalì— ê³±í•¨
+
         for (int i = 0; i < towers.Count; i++)
         {
-            weight += towers[i].weight;
-            if (selectNum <= weight)                                       //°¡ÁßÄ¡º¸´Ù ÀÛÀ¸¸é ÇØ´ç Å¸¿ö ¹İÈ¯
+            weight += towers[i].GetComponent<TowerController>().tower.weight;
+            if (selectNum <= weight) //ê°€ì¤‘ì¹˜ë³´ë‹¤ ì‘ìœ¼ë©´ í•´ë‹¹ íƒ€ì›Œ ë°˜í™˜
             {
-                Tower temp = new Tower(towers[i]);
-                return temp;
+                return towers[i];
             }
         }
+
         return null;
     }
 
@@ -40,7 +37,7 @@ public class RandomTower : MonoBehaviour
     {
         for (int i = 0; i < towers.Count; i++)
         {
-            total += towers[i].weight;
+            total += towers[i].GetComponent<TowerController>().tower.weight;
         }
     }
 }

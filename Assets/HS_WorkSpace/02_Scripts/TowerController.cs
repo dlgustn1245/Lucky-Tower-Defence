@@ -5,32 +5,36 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-    #region Fields
-    public enum Grade { Common, Uncommon, Rare, Unique, Legendary, Epic }
-    
-    [System.NonSerialized] 
-    public Grade grade;
-
-    [Header("Tower Stat")] 
-    public string towerName;
-    public float attackRange;
-    public float maxAttackRange;
-    public float attackSpeed;
-    public float maxAttackSpeed;
-    public int attackDamage;
-    public int maxAttackDamage;
-
+    Animator anim;
     GameObject targetMonster;
-    #endregion
 
-    void Attack(GameObject monster)
+    public Tower tower;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        this.gameObject.GetComponent<CircleCollider2D>().radius = tower.range;
+        print(tower.range);
+        StartCoroutine(Attack());   
+    }
+
+    void Update()
+    {
+        
+    }
+
+    void Attack(GameObject monster, GameObject instigator)
     {
         if (!monster)
         {
             print("No monster");
             return;
         }
-        monster.GetComponent<MonsterController>().TakeDamage(attackDamage);
+        monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
     }
 
     public IEnumerator Attack()
@@ -41,25 +45,16 @@ public class TowerController : MonoBehaviour
             {
                 foreach (var monster in GameManager.Instance.monsterList)
                 {
-                    if (monster.Value)
+                    if (monster.Value) //bool
                     {
                         targetMonster = monster.Key;
                         break;
                     }
                 }
-                Attack(targetMonster);
+                Attack(targetMonster, this.gameObject);
             }
-            yield return new WaitForSeconds(attackSpeed);
+            yield return new WaitForSeconds(tower.attackSpeed);
         }
-    }
-    void Start()
-    {
-        StartCoroutine(Attack());   
-    }
-
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter2D(Collider2D collision)

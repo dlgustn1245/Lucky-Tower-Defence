@@ -15,10 +15,11 @@ GameObject:
   - component: {fileID: -9100645954433021232}
   - component: {fileID: -8344382308611616182}
   - component: {fileID: -525312710756666339}
-  - component: {fileID: 1657873286781563023}
+  - component: {fileID: -7825892795397273220}
+  - component: {fileID: 6333523164818442728}
   m_Layer: 0
   m_Name: Greed
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +170,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1657873286781563023
+--- !u!114 &-7825892795397273220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,11 +179,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 9163089426579142976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b55107423d0aa47a0845f06335258d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
+  hp: 5
+--- !u!68 &6333523164818442728
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163089426579142976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.39574713, y: -0.040097237}
+  - {x: -0.5073001, y: 0.008883804}
+  - {x: -0.5756781, y: 0.23293376}
+  - {x: -0.46157742, y: 0.46393013}
+  - {x: -0.47924122, y: 0.4663598}
+  - {x: -0.45715103, y: 0.47077137}
+  - {x: -0.8872828, y: 0.5166615}
+  - {x: -1.1716622, y: 0.6835051}
+  - {x: -1.254322, y: 1.1154193}
+  - {x: -1.2366687, y: 1.4170074}
+  - {x: -1.0926464, y: 1.6955858}
+  - {x: -0.7121352, y: 1.929135}
+  - {x: -0.3229991, y: 1.9246676}
+  - {x: 0.17392957, y: 1.9990654}
+  - {x: 0.5317175, y: 2.0050888}
+  - {x: 0.7546896, y: 1.897903}
+  - {x: 0.9230787, y: 2.023992}
+  - {x: 1.0893594, y: 1.7515467}
+  - {x: 0.95573366, y: 1.6328484}
+  - {x: 1.0985242, y: 1.3960675}
+  - {x: 0.994179, y: 1.1503015}
+  - {x: 1.0983586, y: 1.0429233}
+  - {x: 0.8780417, y: 0.75112987}
+  - {x: 0.83289593, y: 0.85674185}
+  - {x: 0.5394875, y: 0.6212569}
+  - {x: 0.49834222, y: 0.37523523}
+  - {x: 0.27522072, y: 0.14185154}
+  - {x: 0.2549051, y: -0.07071705}
+  - {x: 0.08992225, y: -0.04039675}
+  - {x: -0.020268094, y: 0.13639247}
+  - {x: -0.29976127, y: 0.14295036}
+  - {x: -0.39015895, y: -0.03207767}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &9163089427342146622
 GameObject:
   m_ObjectHideFlags: 0

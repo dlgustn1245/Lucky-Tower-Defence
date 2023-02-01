@@ -604,10 +604,11 @@ GameObject:
   - component: {fileID: 3626667679519219756}
   - component: {fileID: 236559321948259269}
   - component: {fileID: 258589386026431375}
-  - component: {fileID: -2260031886068115331}
+  - component: {fileID: 3800288838595455454}
+  - component: {fileID: 5525556035209751614}
   m_Layer: 0
   m_Name: Sloth Red
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,7 +759,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2260031886068115331
+--- !u!114 &3800288838595455454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -767,11 +768,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 860581336232014877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b55107423d0aa47a0845f06335258d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
+  hp: 5
+--- !u!70 &5525556035209751614
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860581336232014877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &860581337070807221
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal bloody Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9126577676898868851, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
 --- !u!1 &4472490200810815671 stripped
@@ -163,6 +167,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &-2289935892163949736
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472490200810815671}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!212 &3192239858486775092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -226,20 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7892940291f8f8045b27930bc35a14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4624654916289660544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472490200810815671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b55107423d0aa47a0845f06335258d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
 --- !u!114 &-4264462514962451878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +260,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   moveDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &-1742778826897438308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472490200810815671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 5

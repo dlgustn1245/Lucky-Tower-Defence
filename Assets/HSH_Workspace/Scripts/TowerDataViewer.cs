@@ -54,10 +54,10 @@ public class TowerDataViewer : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void UpdateTowerData()
+    void UpdateTowerData()
 	{
         //textGold.text = "" + playerGold.CurrentGold;
-        textName.text = "" + currentTower.Name;
+        textName.text = "" + currentTower.gameObject.name;
         textDamage.text = "Damage: " + currentTower.Damage;
         textRate.text = "Rate: " + currentTower.Rate;
         textRange.text = "Range: " + currentTower.Range;

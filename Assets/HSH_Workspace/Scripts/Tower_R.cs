@@ -1,26 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-//Å¸¿ö µî±Ş ¿­°ÅÇü
-//public enum TowerGrade1 { Epic, Legendary, Unique, Rare, Uncommon, Common }
-
-[System.Serializable]
-public class Tower_R
-{
-    public string towerName;
-    public int towerAtk;
-    public GameObject towerPrefabs;
-    public TowerGrade1 towerGrade;
-    public int weight;
-
-    public Tower_R(Tower tower)//¸Å°³º¯¼ö·Î Å¸¿ö¸¦ ¹Ş´Â »ı¼ºÀÚ
-    {
-        //Å¸¿ö ¸ñ·Ï ÃÊ±âÈ­
-        this.towerName = tower.towerName;
-        this.towerPrefabs = tower.towerPrefabs;
-        this.towerGrade = tower.towerGrade;
-        this.weight = tower.weight;
-    }
-}
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+//
+//
+// //íƒ€ì›Œ ë“±ê¸‰ ì—´ê±°í˜•
+// //public enum TowerGrade1 { Epic, Legendary, Unique, Rare, Uncommon, Common }
+//
+// [System.Serializable]
+// public class Tower_R
+// {
+//     public string towerName;
+//     public int towerAtk;
+//     public TowerGrade towerGrade;
+//     public int weight;
+//
+//     public Tower_R(Tower tower)//ë§¤ê°œë³€ìˆ˜ë¡œ íƒ€ì›Œë¥¼ ë°›ëŠ” ìƒì„±ì
+//     {
+//         //íƒ€ì›Œ ëª©ë¡ ì´ˆê¸°í™”
+//         this.towerName = tower.tName;
+//         this.towerGrade = tower.grade;
+//         this.weight = tower.weight;
+//     }
+// }

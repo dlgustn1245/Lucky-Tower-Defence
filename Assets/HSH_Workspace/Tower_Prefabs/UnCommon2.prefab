@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9010138587294739052, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -9010138587294739052, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_Name
       value: UnCommon2
@@ -130,3 +138,26 @@ PrefabInstance:
     - {fileID: 1046711758077173144, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
     - {fileID: 3547234881852801590, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+--- !u!1 &5977344124752319336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+  m_PrefabInstance: {fileID: 8540272644768801949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6742104232605687993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977344124752319336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fe258a9c6f2c64eb4dfb3365046808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+    damage: 2
+    grade: 4
+    weight: 30
+    attackSpeed: 1.75
+    range: 0

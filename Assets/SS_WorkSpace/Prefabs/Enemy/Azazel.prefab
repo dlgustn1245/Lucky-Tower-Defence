@@ -209,10 +209,11 @@ GameObject:
   - component: {fileID: 6851935861220469438}
   - component: {fileID: -9142065314608516140}
   - component: {fileID: -4231432483011485113}
-  - component: {fileID: -7281265993872816691}
+  - component: {fileID: -4284080086960231553}
+  - component: {fileID: 4284336098059401618}
   m_Layer: 0
   m_Name: Azazel
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +364,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7281265993872816691
+--- !u!114 &-4284080086960231553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -372,11 +373,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 583884604118754339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b55107423d0aa47a0845f06335258d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
+  hp: 5
+--- !u!70 &4284336098059401618
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583884604118754339}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2.15}
+  m_Size: {x: 2, y: 2.5}
+  m_Direction: 0
 --- !u!1 &583884604406026327
 GameObject:
   m_ObjectHideFlags: 0

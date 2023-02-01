@@ -9,14 +9,13 @@ public class GameManager : Singleton<GameManager>
     public Text timer, monsterCount, round;
     public int currMonsterCount = 0;
     public int currRound = 1;
-    public int gold = 0;
     public int killedMonster = 0;
 
     public bool gameClear = false;
     public bool gameOver = false;
 
-    int monsterCountLimit = 10;
-    int roundToClear = 10;
+    int monsterCountLimit = 100;
+    int roundToClear = 100;
 
     new void Awake()
     {

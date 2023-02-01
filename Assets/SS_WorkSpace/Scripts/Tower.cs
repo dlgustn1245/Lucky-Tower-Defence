@@ -3,29 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//Å¸¿ö µî±Ş ¿­°ÅÇü
-public enum TowerGrade1 { Epic, Legendary, Unique, Rare, Uncommon, Common}
+//íƒ€ì›Œ ë“±ê¸‰ ì—´ê±°í˜•
+public enum TowerGrade { Epic, Legendary, Unique, Rare, Uncommon, Common}
 
 [System.Serializable]
 public class Tower
 {
-    public string towerName;
-    public int towerAtk;
-    public GameObject towerPrefabs;
-    public TowerGrade1 towerGrade;
+    public int damage;
+    public TowerGrade grade;
     public int weight;
-    public float towerMoveSpeed;
-    public float towerAtkSpeed;
+    public float attackSpeed;
+    public float range;
+    [System.NonSerialized]
+    public int gold;
 
-    public Tower(Tower tower)//¸Å°³º¯¼ö·Î Å¸¿ö¸¦ ¹Ş´Â »ı¼ºÀÚ
+    public Tower(Tower tower)//ë§¤ê°œë³€ìˆ˜ë¡œ íƒ€ì›Œë¥¼ ë°›ëŠ” ìƒì„±ì
     {
-        //Å¸¿ö ¸ñ·Ï ÃÊ±âÈ­
-        this.towerName = tower.towerName;
-        this.towerPrefabs = tower.towerPrefabs;
-        this.towerGrade = tower.towerGrade;
+        //íƒ€ì›Œ ëª©ë¡ ì´ˆê¸°í™”
+        this.damage = tower.damage;
+        this.grade = tower.grade;
         this.weight = tower.weight;
-        this.towerMoveSpeed = tower.towerMoveSpeed;
-        this.towerAtkSpeed = tower.towerAtkSpeed;
-
+        this.attackSpeed = tower.attackSpeed;
+        this.gold = tower.gold;
+        this.range = tower.range;
     }
 }

@@ -40,7 +40,7 @@ public class ClickMoving : MonoBehaviour
             }
         }
         //왼쪽 버튼
-        if (Input.GetMouseButtonDown(0) && selected == true)
+        if (Input.GetMouseButtonDown(0) && selected)
         {
             MousePosition = Input.mousePosition;
             MousePosition = cam.ScreenToWorldPoint(MousePosition);

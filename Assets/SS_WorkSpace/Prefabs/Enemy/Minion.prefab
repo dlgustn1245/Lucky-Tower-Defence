@@ -897,10 +897,11 @@ GameObject:
   - component: {fileID: -6367022317824143634}
   - component: {fileID: 5845462599668606943}
   - component: {fileID: -5125776059985974999}
-  - component: {fileID: -8909482983183766496}
+  - component: {fileID: 2178436986839253580}
+  - component: {fileID: 4235781391036179936}
   m_Layer: 0
   m_Name: Minion
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1051,7 +1052,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8909482983183766496
+--- !u!114 &2178436986839253580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1060,11 +1061,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8885757829017722006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b55107423d0aa47a0845f06335258d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
+  hp: 5
+--- !u!70 &4235781391036179936
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8885757829017722006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &8885757829408431976
 GameObject:
   m_ObjectHideFlags: 0

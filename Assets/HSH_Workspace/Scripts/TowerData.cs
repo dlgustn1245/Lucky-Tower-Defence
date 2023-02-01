@@ -4,27 +4,83 @@ using UnityEngine;
 
 public class TowerData : MonoBehaviour
 {
+    public enum Grade { Common, Uncommon, Rare, Unique, Legendary, Epic }
+    [System.NonSerialized] 
+    public Grade grade;
+    
     [SerializeField]
-    private int tGold = 10;
-    //Å¸¿öÀÌ¸§
+    private int gold = 10;
+    //íƒ€ì›Œì´ë¦„
     [SerializeField]
-    private string tName = "T1";
-    //°ø°İ¼Óµµ
+    private string towerName = "T1";
+    //ê³µê²©ì†ë„
     [SerializeField]
     private float attackRate = 0.5f;
-    //°ø°İ¹üÀ§
+    //ê³µê²©ë²”ìœ„
     [SerializeField]
     private float attackRange = 2.0f;
-    //°ø°İ·Â
+    //ê³µê²©ë ¥
     [SerializeField]
     private int attackDamage = 1;
-    //·¹º§
+    //ë ˆë²¨
     private int level = 0;
 
-    public int towerGold => tGold;
-    public string Name => tName;
-    public float Damage => attackDamage;
-    public float Rate => attackRate;
-    public float Range => attackRange;
-    public int Level => level + 1;
+    public string Name => towerName;
+    
+    public int Gold
+    {
+        get
+        {
+            return gold;
+        }
+        set
+        {
+            gold = value;
+        }
+    }
+
+    public int Damage
+    {
+        get
+        {
+            return attackDamage;
+        }
+        set
+        {
+            attackDamage = value;
+        }
+    }
+    public float Rate
+    {
+        get
+        {
+            return attackRate;
+        }
+        set
+        {
+            attackRate = value;
+        }
+    }
+    public float Range{
+        get
+        {
+            return attackRange;
+        }
+        set
+        {
+            attackRange = value;
+        }
+    }
+
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+        set
+        {
+            level = value;
+        }
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,13 @@ public class MonsterController : MonoBehaviour
 {
     [Header("Monster Stat")]
     public int hp;
+
+    Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Start()
     {
@@ -17,23 +25,31 @@ public class MonsterController : MonoBehaviour
         
     }
     
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, GameObject tower)
     {
         print("Hit");
         hp -= dmg;
         if(hp <= 0)
         {
             print("Monster Dead");
+            anim.SetTrigger("Die");
             GameManager.Instance.monsterList.Remove(this.gameObject);
             --GameManager.Instance.currMonsterCount;
             ++GameManager.Instance.killedMonster;
             GameManager.Instance.SetMonsterCountText();
             if (GameManager.Instance.killedMonster % 2 == 0)
             {
-                ++GameManager.Instance.gold;
-                print(GameManager.Instance.gold);
+                ++tower.GetComponent<TowerController>().tower.gold;
+                print("gold : " + tower.GetComponent<TowerController>().tower.gold);
             }
-            Destroy(this.gameObject);
+
+            StartCoroutine(DestroyEnemy());
         }
+    }
+
+    IEnumerator DestroyEnemy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
     }
 }
