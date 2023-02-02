@@ -18,7 +18,7 @@ public class TowerController : MonoBehaviour
     void Start()
     {
         this.gameObject.GetComponent<CircleCollider2D>().radius = tower.range;
-        print(tower.range);
+        //print(tower.range);
         StartCoroutine(Attack());   
     }
 
@@ -31,7 +31,7 @@ public class TowerController : MonoBehaviour
     {
         if (!monster)
         {
-            print("No monster");
+            //print("No monster");
             return;
         }
         monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
@@ -61,7 +61,7 @@ public class TowerController : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            print("Detect Enemy");
+            //print("Detect Enemy");
             GameManager.Instance.monsterList[collision.gameObject] = true;
         }
     }
@@ -70,7 +70,7 @@ public class TowerController : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            print("Exit Enemy");
+            //print("Exit Enemy");
             GameManager.Instance.monsterList[collision.gameObject] = false;
         }
     }

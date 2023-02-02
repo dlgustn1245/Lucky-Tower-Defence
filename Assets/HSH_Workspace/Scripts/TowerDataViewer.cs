@@ -8,18 +8,18 @@ public class TowerDataViewer : MonoBehaviour
 {
     /*[SerializeField]
     private TextMeshProUGUI textGold;*/
+    /*[SerializeField]
+    private Image imageTower;*/
     [SerializeField]
-    private Image imageTower;
+    private Text textName;
     [SerializeField]
-    private TextMeshProUGUI textName;
+    private Text textDamage;
     [SerializeField]
-    private TextMeshProUGUI textDamage;
+    private Text textRate;
     [SerializeField]
-    private TextMeshProUGUI textRate;
+    private Text textRange;
     [SerializeField]
-    private TextMeshProUGUI textRange;
-    [SerializeField]
-    private TextMeshProUGUI textLevel;
+    private Text textLevel;
 
     private TowerData currentTower;
     private PlayerGold playerGold;
