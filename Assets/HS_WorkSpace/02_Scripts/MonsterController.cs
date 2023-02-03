@@ -6,12 +6,13 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     [Header("Monster Stat")]
-    public int hp;
-
+    public int maxHP;
+    public int currentHP;
     Animator anim;
 
     void Awake()
     {
+        currentHP = maxHP;
         anim = GetComponent<Animator>();
     }
 
@@ -28,8 +29,8 @@ public class MonsterController : MonoBehaviour
     public void TakeDamage(int dmg, GameObject tower)
     {
         print("Hit");
-        hp -= dmg;
-        if(hp <= 0)
+        currentHP -= dmg;
+        if(currentHP <= 0)
         {
             print("Monster Dead");
             anim.SetTrigger("Die");
