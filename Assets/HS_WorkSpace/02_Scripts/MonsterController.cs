@@ -6,8 +6,8 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     [Header("Monster Stat")]
-    public int maxHP;
-    public int currentHP;
+    public float maxHP;
+    public float currentHP;
     Animator anim;
 
     void Awake()
