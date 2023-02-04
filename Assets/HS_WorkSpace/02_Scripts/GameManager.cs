@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public int currMonsterCount = 0;
     public int currRound = 1;
     public int killedMonster = 0;
+    public GameObject menuPanel;
 
     public bool gameClear = false;
     public bool gameOver = false;
@@ -41,6 +42,11 @@ public class GameManager : Singleton<GameManager>
             print("Game Clear");
             gameClear = true;
             StopAllCoroutines();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menuPanel.SetActive(true);
         }
     }
 
