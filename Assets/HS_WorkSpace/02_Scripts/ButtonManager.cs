@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     public GameObject menuPanel;
-    public Text pauseButtonText;
+    public Text pauseButtonText, speedUpButtonText;
 
     bool isPaused;
+    bool isSpeedUpActivated;
     int pauseCnt;
 
     void Start()
@@ -42,5 +43,27 @@ public class ButtonManager : MonoBehaviour
     public void OnClickClose()
     {
         menuPanel.SetActive(false);
+    }
+
+    public void OnClickSpeedUp()
+    {
+        if (isPaused)
+        {
+            return;
+        }
+        
+        if (!isSpeedUpActivated)
+        {
+            isSpeedUpActivated = true;
+            speedUpButtonText.text = "x1배속";
+            Time.timeScale = 2.0f;
+
+        }
+        else
+        {
+            isSpeedUpActivated = false;
+            speedUpButtonText.text = "x2배속";
+            Time.timeScale = 1.0f;
+        }
     }
 }
