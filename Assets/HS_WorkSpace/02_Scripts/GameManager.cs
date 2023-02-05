@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     public bool gameClear = false;
     public bool gameOver = false;
 
-    int monsterCountLimit = 100;
+    int monsterCountLimit = 10;
     int roundToClear = 100;
 
     new void Awake()
@@ -25,7 +25,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        StartCoroutine(RountTimer());
+        StartCoroutine(RoundTimer());
     }
     
     void Update()
@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
             print("Game Over");
             gameOver = true;
             StopAllCoroutines();
+            DestroyAllMonsters();
         }
 
         if (currRound >= roundToClear)
@@ -42,6 +43,7 @@ public class GameManager : Singleton<GameManager>
             print("Game Clear");
             gameClear = true;
             StopAllCoroutines();
+            DestroyAllMonsters();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -50,7 +52,17 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    IEnumerator RountTimer()
+    void DestroyAllMonsters()
+    {
+        foreach (var pair in monsterList)
+        {
+            var go = pair.Key;
+            Destroy(go);
+            monsterList.Remove(go);
+        }
+    }
+
+    IEnumerator RoundTimer()
     {
         while (true)
         {

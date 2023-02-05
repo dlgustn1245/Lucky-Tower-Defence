@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
@@ -16,9 +17,9 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         pauseCnt = PlayerPrefs.GetInt("PauseCount", 2);
-        pauseButtonText.text = "일시정지 : " + pauseCnt;
     }
-
+    
+    #region InGameMenu
     public void OnClickPause()
     {
         if (!isPaused)
@@ -38,6 +39,11 @@ public class ButtonManager : MonoBehaviour
             pauseButtonText.text = "일시정지 : " + pauseCnt;
             Time.timeScale = 1.0f;
         }
+    }
+
+    public void OnClickToTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void OnClickClose()
@@ -66,4 +72,21 @@ public class ButtonManager : MonoBehaviour
             Time.timeScale = 1.0f;
         }
     }
+    #endregion
+
+    #region TitleScene
+    public void OnClickStartGame()
+    {
+        SceneManager.LoadScene("Stage");
+    }
+
+    public void OnClickQuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+    #endregion
 }
