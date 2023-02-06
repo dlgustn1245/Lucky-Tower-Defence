@@ -34,10 +34,10 @@ public class MonsterController : MonoBehaviour
             GameManager.Instance.monsterList.Remove(this.gameObject);
             --GameManager.Instance.currMonsterCount;
             ++GameManager.Instance.killedMonster;
-            GameManager.Instance.SetMonsterCountText();
+            GameManager.Instance.SetText();
             if (GameManager.Instance.killedMonster % 2 == 0)
             {
-                ++tower.GetComponent<TowerController>().tower.gold;
+                ++GameManager.Instance.gold;
                 //print("gold : " + tower.GetComponent<TowerController>().tower.gold);
             }
 

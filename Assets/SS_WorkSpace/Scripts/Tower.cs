@@ -14,8 +14,7 @@ public class Tower
     public int weight;
     public float attackSpeed;
     public float range;
-    [System.NonSerialized]
-    public int gold;
+    public int price;
 
     public Tower(Tower tower)//매개변수로 타워를 받는 생성자
     {
@@ -24,7 +23,7 @@ public class Tower
         this.grade = tower.grade;
         this.weight = tower.weight;
         this.attackSpeed = tower.attackSpeed;
-        this.gold = tower.gold;
         this.range = tower.range;
+        this.price = tower.price;
     }
 }

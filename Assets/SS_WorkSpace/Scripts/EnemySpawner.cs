@@ -45,11 +45,11 @@ public class EnemySpawner : MonoBehaviour
                 EnemyMove enemyMove = clone.GetComponent<EnemyMove>();
 
                 enemyMove.Setup(wayPoints);
-               
 
                 SpawnEnemyHPSlider(clone);
 
                 spawnEnemyCount++;
+                ++GameManager.Instance.currMonsterCount;
 
                 yield return new WaitForSeconds(currentWave.spawnTime);
             }

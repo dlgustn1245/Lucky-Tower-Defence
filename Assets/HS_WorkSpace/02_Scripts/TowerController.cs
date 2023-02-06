@@ -17,7 +17,7 @@ public class TowerController : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.GetComponent<CircleCollider2D>().radius = tower.range;
+        //this.gameObject.GetComponent<CircleCollider2D>().radius = tower.range;
         //print(tower.range);
         StartCoroutine(Attack());   
     }

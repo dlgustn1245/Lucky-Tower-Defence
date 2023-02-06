@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class ClickMoving : MonoBehaviour
 {
-    private Camera cam;
+    Camera cam;
     
     //클릭된 오브젝트
-    private GameObject target;
+    GameObject target;
 
-    private bool selected = false;
-    private bool clicked = false;
+    bool selected = false;
+    bool clicked = false;
 
-    public GameObject[] towers;
-
-    private Vector2 mousePos, transPos, destPos;
-
-    private Vector2 touchPos;
-
+    Vector2 mousePos, transPos, destPos;
+    Vector2 touchPos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +24,7 @@ public class ClickMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //오른쪽 버튼
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
             //Debug.Log(touchPos);
@@ -42,14 +38,13 @@ public class ClickMoving : MonoBehaviour
                 selected = true;
             }
         }
-        //왼쪽 버튼
-        if (Input.GetMouseButtonDown(0) && selected)
+        if (Input.GetMouseButtonDown(1) && selected)
         {
             CalDestPos();
             clicked = true;
         }
 
-        if (clicked == true)
+        if (clicked)
         {
             target.transform.position = Vector2.MoveTowards(target.transform.position, destPos, Time.deltaTime * 10f);
         }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public Dictionary<GameObject, bool> monsterList = new Dictionary<GameObject, bool>();
-    public Text timer, monsterCount, round;
+    public Text timer, monsterCount, round, goldText;
     public int currMonsterCount = 0;
     public int currRound = 1;
     public int killedMonster = 0;
@@ -15,7 +15,9 @@ public class GameManager : Singleton<GameManager>
     public bool gameClear = false;
     public bool gameOver = false;
 
-    int monsterCountLimit = 10;
+    public int gold = 20;
+
+    int monsterCountLimit = 100;
     int roundToClear = 100;
 
     new void Awake()
@@ -25,6 +27,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        SetText();
         StartCoroutine(RoundTimer());
     }
     
@@ -54,12 +57,12 @@ public class GameManager : Singleton<GameManager>
 
     void DestroyAllMonsters()
     {
-        foreach (var pair in monsterList)
-        {
-            var go = pair.Key;
-            Destroy(go);
-            monsterList.Remove(go);
-        }
+        // foreach (var pair in monsterList)
+        // {
+        //     var go = pair.Key;
+        //     Destroy(go);
+        //     monsterList.Remove(go);
+        // }
     }
 
     IEnumerator RoundTimer()
@@ -76,8 +79,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SetMonsterCountText()
+    public void SetText()
     {
         monsterCount.text = currMonsterCount.ToString();
+        goldText.text = gold.ToString();
     }
 }
