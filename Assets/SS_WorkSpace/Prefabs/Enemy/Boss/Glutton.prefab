@@ -700,6 +700,8 @@ GameObject:
   - component: {fileID: 4601076687708432900}
   - component: {fileID: -5319586804530351801}
   - component: {fileID: -8075494868927884256}
+  - component: {fileID: 3045380604826924344}
+  - component: {fileID: 6556987342002390121}
   m_Layer: 0
   m_Name: Glutton
   m_TagString: Untagged
@@ -853,3 +855,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3045380604826924344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925527517674433393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 50
+  currentHP: 0
+--- !u!114 &6556987342002390121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925527517674433393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fb917fbc9331f48b9e882c5fb8928b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 0
+  currentHP: 0
