@@ -35,6 +35,18 @@ PrefabInstance:
       propertyPath: m_CategoryHash
       value: 20242478
       objectReference: {fileID: 0}
+    - target: {fileID: 5707811362395021029, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: towerName
+      value: UnCommon3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707811362395021029, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: attackRate
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707811362395021029, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8697962802370984161, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: m_RootOrder
       value: 0

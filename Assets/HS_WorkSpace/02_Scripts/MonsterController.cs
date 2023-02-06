@@ -28,11 +28,8 @@ public class MonsterController : MonoBehaviour
     
     public void TakeDamage(int dmg, GameObject tower)
     {
-        print("Hit");
-        currentHP -= dmg;
-        if(currentHP <= 0)
         {
-            print("Monster Dead");
+            //print("Monster Dead");
             anim.SetTrigger("Die");
             GameManager.Instance.monsterList.Remove(this.gameObject);
             --GameManager.Instance.currMonsterCount;
@@ -41,7 +38,7 @@ public class MonsterController : MonoBehaviour
             if (GameManager.Instance.killedMonster % 2 == 0)
             {
                 ++tower.GetComponent<TowerController>().tower.gold;
-                print("gold : " + tower.GetComponent<TowerController>().tower.gold);
+                //print("gold : " + tower.GetComponent<TowerController>().tower.gold);
             }
 
             StartCoroutine(DestroyEnemy());

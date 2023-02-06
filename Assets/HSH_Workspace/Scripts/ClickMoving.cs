@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ClickMoving : MonoBehaviour
 {
-    public Camera cam;
-
+    private Camera cam;
+    
     //클릭된 오브젝트
     private GameObject target;
+
     private bool selected = false;
+    private bool clicked = false;
 
     public GameObject[] towers;
 
-    private Vector3 mousePos, transPos, destPos;
+    private Vector2 mousePos, transPos, destPos;
 
-    Vector2 MousePosition;
+    private Vector2 touchPos;
 
     // Start is called before the first frame update
     void Start()
@@ -28,35 +30,34 @@ public class ClickMoving : MonoBehaviour
         //오른쪽 버튼
         if (Input.GetMouseButtonDown(1))
         {
-            Vector2 touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            //Debug.Log(touchPos);
             RaycastHit2D hit = Physics2D.Raycast(touchPos, cam.transform.forward);
 
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.name);
-                selected = true;
                 target = hit.collider.gameObject;
                 Debug.Log(target);
+
+                selected = true;
             }
         }
         //왼쪽 버튼
         if (Input.GetMouseButtonDown(0) && selected)
         {
-            MousePosition = Input.mousePosition;
-            MousePosition = cam.ScreenToWorldPoint(MousePosition);
+            CalDestPos();
+            clicked = true;
+        }
 
-			transform.position = MousePosition;
-            Debug.Log(MousePosition);
-		}
-
-        if (selected == true)
+        if (clicked == true)
         {
-            //MoveToDest();
+            target.transform.position = Vector2.MoveTowards(target.transform.position, destPos, Time.deltaTime * 10f);
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
             selected = false;
+            clicked = false;
         }
     }
 
@@ -64,13 +65,6 @@ public class ClickMoving : MonoBehaviour
     {
         mousePos = Input.mousePosition;
         transPos = cam.ScreenToWorldPoint(mousePos);
-        destPos = new Vector3(transPos.x, transPos.y, 0);
+        destPos = new Vector2(transPos.x, transPos.y);
     }
-
-    void MoveToDest()
-    {
-        target.transform.position = mousePos;
-        //transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * 10f);
-    }
-
 }
