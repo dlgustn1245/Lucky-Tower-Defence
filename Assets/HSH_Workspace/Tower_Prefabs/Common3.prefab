@@ -177,6 +177,7 @@ MonoBehaviour:
     weight: 50
     attackSpeed: 2
     range: 7
+    price: 0
 --- !u!114 &8958925402314687352
 MonoBehaviour:
   m_ObjectHideFlags: 0

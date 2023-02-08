@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unique3
       objectReference: {fileID: 0}
+    - target: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -193,3 +197,4 @@ MonoBehaviour:
     weight: 5
     attackSpeed: 1.25
     range: 7
+    price: 0

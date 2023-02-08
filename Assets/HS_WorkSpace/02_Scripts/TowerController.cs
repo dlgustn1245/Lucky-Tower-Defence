@@ -10,6 +10,9 @@ public class TowerController : MonoBehaviour
 
     public Tower tower;
 
+    public bool isClicked;
+    public Vector2 destination = Vector2.zero;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -24,14 +27,21 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
-        
+        if (isClicked)
+        {
+            this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * 1.0f);
+            if (Vector2.Distance(this.transform.position, destination) < 0.1f)
+            {
+                isClicked = false;
+                destination = Vector2.zero;
+            }
+        }
     }
 
     void Attack(GameObject monster, GameObject instigator)
     {
         if (!monster)
         {
-            //print("No monster");
             return;
         }
         monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);

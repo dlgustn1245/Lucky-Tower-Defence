@@ -23,8 +23,8 @@ public class ClickToShowData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //¿À¸¥ÂÊ ¹öÆ°
-        if (Input.GetMouseButtonDown(1))
+        //left click
+        if (Input.GetMouseButtonDown(0))
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             
@@ -32,7 +32,7 @@ public class ClickToShowData : MonoBehaviour
 
             if (hit)
 			{
-                //Å¸¿ö Á¤º¸ Ãâ·Â
+                //íƒ€ì›Œ ì •ë³´ ì¶œë ¥
                 if (hit.transform.CompareTag("Tower"))
                 {
                     target = hit.collider.gameObject;
