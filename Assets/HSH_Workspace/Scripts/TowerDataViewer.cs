@@ -33,7 +33,7 @@ public class TowerDataViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             OffPanel();
         }
@@ -57,7 +57,7 @@ public class TowerDataViewer : MonoBehaviour
     void UpdateTowerData()
 	{
         //textGold.text = "" + playerGold.CurrentGold;
-        textName.text = "" + currentTower.gameObject.name;
+        textName.text = "" + currentTower.TowerName;
         textDamage.text = "Damage: " + currentTower.Damage;
         textRate.text = "Rate: " + currentTower.Rate;
         textRange.text = "Range: " + currentTower.Range;

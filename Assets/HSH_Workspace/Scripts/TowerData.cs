@@ -25,62 +25,30 @@ public class TowerData : MonoBehaviour
     //레벨
     private int level = 0;
 
-    public string Name => towerName;
-    
-    public int Gold
+    public string TowerName
     {
-        get
-        {
-            return gold;
-        }
-        set
-        {
-            gold = value;
-        }
+        get => towerName;
+        set => towerName = value;
     }
 
     public int Damage
     {
-        get
-        {
-            return attackDamage;
-        }
-        set
-        {
-            attackDamage = value;
-        }
+        get => attackDamage;
+        set => attackDamage = value;
     }
     public float Rate
     {
-        get
-        {
-            return attackRate;
-        }
-        set
-        {
-            attackRate = value;
-        }
+        get => attackRate;
+        set => attackRate = value;
     }
     public float Range{
-        get
-        {
-            return attackRange;
-        }
-        set
-        {
-            attackRange = value;
-        }
+        get => attackRange;
+        set => attackRange = value;
     }
 
     public int Level
     {
-        get
-        {
-            return level;
-        }
-        set
-        {
-            level = value;
-        }
+        get => level;
+        set => level = value;
     }
 }

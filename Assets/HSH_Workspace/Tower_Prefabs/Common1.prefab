@@ -96,6 +96,7 @@ MonoBehaviour:
     weight: 50
     attackSpeed: 2
     range: 7
+    price: 0
 --- !u!114 &3317670398906066639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 10
-  towerName: T1
+  towerName: Common1
   attackRate: 2
   attackRange: 7
   attackDamage: 1
