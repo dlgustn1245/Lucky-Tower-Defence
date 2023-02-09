@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_SpriteLibraryAsset
       value: 
       objectReference: {fileID: 11400000, guid: 7770b642035434695b1419932f00307b, type: 2}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8831882847739180946, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_Size.x
       value: 2.2783139
@@ -174,6 +178,13 @@ MonoBehaviour:
     attackSpeed: 0.5
     range: 7
     price: 0
+  boundary:
+    xMin: -2.5
+    xMax: 2.5
+    yMin: -2.75
+    yMax: 2.5
+  isClicked: 0
+  destination: {x: 0, y: 0}
 --- !u!114 &1514288511066347121
 MonoBehaviour:
   m_ObjectHideFlags: 0

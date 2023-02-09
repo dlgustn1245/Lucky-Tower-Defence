@@ -3,15 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class Boundary
+{
+    public float xMin;
+    public float xMax;
+    public float yMin;
+    public float yMax;
+}
+
 public class TowerController : MonoBehaviour
 {
     Animator anim;
     GameObject targetMonster;
 
     public Tower tower;
-
+    public Boundary boundary;
     public bool isClicked;
     public Vector2 destination = Vector2.zero;
+
+    float speed = 10.0f;
 
     void Awake()
     {
@@ -29,13 +40,25 @@ public class TowerController : MonoBehaviour
     {
         if (isClicked)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * 1.0f);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * 10.0f);
             if (Vector2.Distance(this.transform.position, destination) < 0.1f)
             {
                 isClicked = false;
                 destination = Vector2.zero;
             }
         }
+
+        if (!IsPositionInRange())
+        {
+            isClicked = false;
+            destination = Vector2.zero;
+        }
+    }
+
+    bool IsPositionInRange()
+    {
+        var position = this.transform.position;
+        return (position.x >= boundary.xMin && position.x <= boundary.xMax) && (position.y >= boundary.yMin && position.y <= boundary.yMax);
     }
 
     void Attack(GameObject monster, GameObject instigator)
