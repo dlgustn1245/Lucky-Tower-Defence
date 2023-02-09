@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2628789413488488937, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68,7 +68,27 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Size.y
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940292604137252895, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -97,6 +117,13 @@ MonoBehaviour:
     attackSpeed: 2
     range: 7
     price: 0
+  boundary:
+    xMin: -2.5
+    xMax: 2.5
+    yMin: -2.75
+    yMax: 2.5
+  isClicked: 0
+  destination: {x: 0, y: 0}
 --- !u!114 &3317670398906066639
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class TowerSpawner : MonoBehaviour
 
     public void SpawnTower()
     {
-        Vector2 spawnPos = new Vector2(0, 0);
+        Vector3 spawnPos = new Vector3(0, 0, -1);
 
         //선택한 타일의 위치에 타워 건설
         Instantiate(towerPrefab, spawnPos, Quaternion.identity);

@@ -39,7 +39,7 @@ public class ClickMoving : MonoBehaviour
         touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(touchPos, cam.transform.forward);
     
-        if (hit.collider)
+        if (hit.collider && hit.collider.gameObject.CompareTag("Tower"))
         {
             target = hit.collider.gameObject.GetComponent<TowerController>();
             selected = true;
