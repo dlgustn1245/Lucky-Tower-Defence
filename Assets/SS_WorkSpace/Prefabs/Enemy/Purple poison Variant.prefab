@@ -165,11 +165,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9125883248937314127, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.139631
       objectReference: {fileID: 0}
     - target: {fileID: 9125883248937314127, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -12.327374
       objectReference: {fileID: 0}
     - target: {fileID: 9125883248937314127, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -252,8 +252,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: -0.051379204, y: 1.2844706}
+  m_Size: {x: 1.0822964, y: 2.609868}
   m_Direction: 0
 --- !u!212 &2169749627945541331
 SpriteRenderer:
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e147f65f6bc214b4c8941629bd19f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 1
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &-2374982262785528014
 MonoBehaviour:

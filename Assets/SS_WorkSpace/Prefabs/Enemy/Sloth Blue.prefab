@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: -2390341633196133844}
   - component: {fileID: 1385922221619023077}
   - component: {fileID: -7815696197572893111}
-  - component: {fileID: 5809014378716802050}
+  - component: {fileID: 5609170376365350071}
   m_Layer: 0
   m_Name: Sloth Blue
   m_TagString: Monster
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e147f65f6bc214b4c8941629bd19f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 0.75
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &-2390341633196133844
 MonoBehaviour:
@@ -864,8 +864,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 0
---- !u!70 &5809014378716802050
-CapsuleCollider2D:
+--- !u!68 &5609170376365350071
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -878,8 +878,33 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.6686406, y: 1.4235116}
+  - {x: -1.0839337, y: 1.2708312}
+  - {x: -1.3077599, y: 0.7763606}
+  - {x: -1.368373, y: 0.55031586}
+  - {x: -1.3237244, y: 0.2614336}
+  - {x: -1.428873, y: 0.07682846}
+  - {x: -1.3719672, y: -0.122103274}
+  - {x: -1.2057346, y: -0.107500106}
+  - {x: -1.1499792, y: -0.0063844025}
+  - {x: 0.01655528, y: -0.08738951}
+  - {x: 0.15495372, y: -0.1874514}
+  - {x: 0.42568994, y: 0.0009875055}
+  - {x: 0.8095773, y: -0.0002975799}
+  - {x: 0.9968027, y: -0.115096144}
+  - {x: 1.1271783, y: 0.15742585}
+  - {x: 1.0082933, y: 0.4009776}
+  - {x: 1.0033842, y: 0.66864544}
+  - {x: 0.8350964, y: 1.2178379}
+  - {x: -0.040771283, y: 1.3450485}
+  - {x: -0.41198546, y: 1.3935453}
+  - {x: -0.6737993, y: 1.4277483}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &6702140171418565335
 GameObject:
   m_ObjectHideFlags: 0

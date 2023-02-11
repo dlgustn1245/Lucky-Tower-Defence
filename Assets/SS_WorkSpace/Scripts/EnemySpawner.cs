@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     private Wave currentWave;
     private int waveCount = 0;
     private int currentWaveIndex = -1;
-
+    private int spawnEnemyCount = 0;
 
     void Awake()
     {
@@ -38,12 +38,12 @@ public class EnemySpawner : MonoBehaviour
             waveCount++;
             currentWaveIndex++;
             currentWave = waves[currentWaveIndex];
-            int spawnEnemyCount = 0;
+            spawnEnemyCount = 0;
             while (spawnEnemyCount < currentWave.maxEnemyCount)
             {
                 GameObject clone = Instantiate(currentWave.enemyPrefab);
                 EnemyMove enemyMove = clone.GetComponent<EnemyMove>();
-
+                
                 enemyMove.Setup(wayPoints);
 
                 SpawnEnemyHPSlider(clone);
@@ -51,7 +51,12 @@ public class EnemySpawner : MonoBehaviour
                 spawnEnemyCount++;
                 ++GameManager.Instance.currMonsterCount;
 
-                yield return new WaitForSeconds(currentWave.spawnTime);
+                if(currentWave.enemyGrade == EnemyGrade.Low)
+                    yield return new WaitForSeconds(currentWave.spawnTime);
+                else if(currentWave.enemyGrade == EnemyGrade.Low && spawnEnemyCount == currentWave.maxEnemyCount)
+                    yield return new WaitForSecondsRealtime(10f);
+                else if(currentWave.enemyGrade == EnemyGrade.Boss)
+                    yield return new WaitForSecondsRealtime(90f);
             }
         }
     }

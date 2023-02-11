@@ -8,12 +8,18 @@ public class MonsterController : MonoBehaviour
     [Header("Monster Stat")]
     public float maxHP;
     public float currentHP;
+    private ObjectPooling objectPooling;
     Animator anim;
 
     void Awake()
     {
         currentHP = maxHP;
         anim = GetComponent<Animator>();
+    }
+
+    public void Setup(ObjectPooling objectPooling)
+    {
+        this.objectPooling = objectPooling;
     }
 
     void Start()
@@ -48,6 +54,6 @@ public class MonsterController : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        Destroy(this.gameObject);
+        objectPooling.DeactivatePoolItem(gameObject);
     }
 }
