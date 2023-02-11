@@ -11,7 +11,7 @@ public class ClickMoving : MonoBehaviour
 
     bool selected;
 
-    Vector2 mousePos, transPos, destPos;
+    Vector2 mousePos, transPos;
     Vector2 touchPos;
     
     void Update()
@@ -22,8 +22,7 @@ public class ClickMoving : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1) && selected)
         {
-            CalDestPos();
-            target.destination = destPos;
+            target.destination = CalDestPos();
             target.isClicked = true;
         }
 
@@ -46,10 +45,10 @@ public class ClickMoving : MonoBehaviour
         }
     }
 
-    void CalDestPos()
+    Vector2 CalDestPos()
     {
         mousePos = Input.mousePosition;
         transPos = cam.ScreenToWorldPoint(mousePos);
-        destPos = new Vector2(transPos.x, transPos.y);
+        return new Vector2(transPos.x, transPos.y);
     }
 }

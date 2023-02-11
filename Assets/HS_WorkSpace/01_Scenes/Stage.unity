@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57179039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1176909184}
@@ -3457,6 +3457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerDataViewer: {fileID: 435231853}
   SpawnPos: {fileID: 1275803462}
+  target: {fileID: 0}
 --- !u!114 &440929816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,7 +4449,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066696150}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: InGameButtonEvent, Assembly-CSharp
         m_MethodName: OnClickClose
         m_Mode: 1
         m_Arguments:
@@ -6055,7 +6056,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066696150}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: InGameButtonEvent, Assembly-CSharp
         m_MethodName: OnClickPause
         m_Mode: 1
         m_Arguments:
@@ -6212,12 +6213,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1066696149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0176f7c7872312d498c639e43810daa7, type: 3}
+  m_Script: {fileID: 11500000, guid: e512e016707e1c040979aee45f51d4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPanel: {fileID: 835836754}
-  pauseButtonText: {fileID: 926632569}
-  speedUpButtonText: {fileID: 1844957035}
+  menuPanel: {fileID: 0}
+  pauseButtonText: {fileID: 0}
+  speedUpButtonText: {fileID: 0}
 --- !u!4 &1066696151
 Transform:
   m_ObjectHideFlags: 0
@@ -10276,8 +10277,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066696150}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnClickSpeedUp
+        m_TargetAssemblyTypeName: InGameButtonEvent, Assembly-CSharp
+        m_MethodName: OnClickToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10891,7 +10892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066696150}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: InGameButtonEvent, Assembly-CSharp
         m_MethodName: OnClickSpeedUp
         m_Mode: 1
         m_Arguments:

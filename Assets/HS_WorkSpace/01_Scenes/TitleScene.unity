@@ -307,12 +307,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 885317896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0176f7c7872312d498c639e43810daa7, type: 3}
+  m_Script: {fileID: 11500000, guid: ddafab2ece228bc4d947160e0535cf09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPanel: {fileID: 0}
-  pauseButtonText: {fileID: 0}
-  speedUpButtonText: {fileID: 0}
 --- !u!4 &885317898
 Transform:
   m_ObjectHideFlags: 0
@@ -477,7 +474,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 885317897}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: TitleSceneButtonEvent, Assembly-CSharp
         m_MethodName: OnClickStartGame
         m_Mode: 1
         m_Arguments:
@@ -795,7 +792,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 885317897}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: TitleSceneButtonEvent, Assembly-CSharp
         m_MethodName: OnClickQuitGame
         m_Mode: 1
         m_Arguments:
