@@ -4,13 +4,68 @@ using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour
 {
-    public void UpgradeTower()
+	private bool state = false;
+
+	Tower currentTower;
+	ClickToShowData info;
+	public GameManager gameManager;
+
+	public void Start()
 	{
-		
+		currentTower = info.target.GetComponent<TowerController>().tower;
 	}
 
-	public void SellTower()
+    public void UpgradeButton()
+    {
+        if (state == false)
+        {
+			gameObject.SetActive(true);
+			state = true;
+        }
+        else
+        {
+			gameObject.SetActive(false);
+			state = false;
+        }
+    }
+
+    public void UpgradeCommon()
+	{
+		if (currentTower.grade == TowerGrade.Common)
+        {
+			currentTower.attackSpeed++;
+			currentTower.damage++;
+			currentTower.range++;
+        }
+	}
+
+	public void UpgradeUnCommon()
 	{
 
+	}
+
+	public void UpgradeRare()
+	{
+
+	}
+
+	public void UpgradeUnique()
+	{
+
+	}
+
+	public void UpgradeEpic()
+	{
+
+	}
+
+	public void UpgradeLegendary()
+	{
+
+	}
+	public void SellTower()
+	{
+		GameManager.Instance.gold += currentTower.price;
+		//Destroy(gameObject);
 	}
 }

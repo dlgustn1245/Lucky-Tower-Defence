@@ -12,7 +12,7 @@ public class ClickToShowData : MonoBehaviour
     private Vector2 mousePos;
     private Camera cam;
 
-    private GameObject target;
+    public GameObject target;
 
     // Start is called before the first frame update
     void Start()

@@ -21,8 +21,8 @@ public class TowerDataViewer : MonoBehaviour
     [SerializeField]
     private Text textLevel;
 
-    private TowerData currentTower;
-    private PlayerGold playerGold;
+    Tower currentTower;
+    TowerData currentTower_data;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,8 @@ public class TowerDataViewer : MonoBehaviour
     public void OnPanel(Transform cTower)
     {
         //출력해야하는 타워 정보를 받아와서 저장
-        currentTower = cTower.GetComponent<TowerData>();
+        currentTower = cTower.GetComponent<TowerController>().tower;
+        currentTower_data = cTower.GetComponent<TowerData>();
         //타워 정보 Panel On
         gameObject.SetActive(true);
         //타워 정보를 갱신
@@ -57,10 +58,9 @@ public class TowerDataViewer : MonoBehaviour
     void UpdateTowerData()
 	{
         //textGold.text = "" + playerGold.CurrentGold;
-        textName.text = "" + currentTower.TowerName;
-        textDamage.text = "Damage: " + currentTower.Damage;
-        textRate.text = "Rate: " + currentTower.Rate;
-        textRange.text = "Range: " + currentTower.Range;
-        textLevel.text = "Level: " + currentTower.Level;
+        textName.text = "" + currentTower_data.TowerName;
+        textDamage.text = "Damage: " + currentTower.damage;
+        textRate.text = "Rate: " + currentTower.attackSpeed;
+        textRange.text = "Range: " + currentTower.range;
     }
 }
