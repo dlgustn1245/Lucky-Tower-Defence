@@ -8,6 +8,12 @@ public class ButtonEvent : MonoBehaviour
 
 	Tower currentTower;
 	ClickToShowData info;
+	public GameManager gameManager;
+
+	public void Start()
+	{
+		currentTower = info.target.GetComponent<TowerController>().tower;
+	}
 
     public void UpgradeButton()
     {
@@ -25,8 +31,6 @@ public class ButtonEvent : MonoBehaviour
 
     public void UpgradeCommon()
 	{
-		currentTower = info.target.GetComponent<TowerController>().tower;
-
 		if (currentTower.grade == TowerGrade.Common)
         {
 			currentTower.attackSpeed++;
@@ -61,6 +65,7 @@ public class ButtonEvent : MonoBehaviour
 	}
 	public void SellTower()
 	{
-
+		GameManager.Instance.gold += currentTower.price;
+		//Destroy(gameObject);
 	}
 }
