@@ -6,8 +6,6 @@ public class ClickToShowData : MonoBehaviour
 {
     [SerializeField]
     private TowerDataViewer towerDataViewer;
-    [SerializeField]
-    private GameObject SpawnPos;
 
     private Vector2 mousePos;
     private Camera cam;

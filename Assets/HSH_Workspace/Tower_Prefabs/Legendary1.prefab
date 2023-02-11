@@ -151,23 +151,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
   m_PrefabInstance: {fileID: 4965223454754731530}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4747332364740267090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962259479661937151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2f56c764878fe42ad6855a4b54c9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gold: 10
-  towerName: Legendary
-  attackRate: 1
-  attackRange: 7
-  attackDamage: 5
 --- !u!114 &4830493526841971979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,12 +164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
+    towerName: Legendary1
     damage: 5
-    grade: 1
+    grade: 14
     weight: 3
     attackSpeed: 1
     range: 7
-    price: 0
+    price: 10
   boundary:
     xMin: -2.5
     xMax: 2.5

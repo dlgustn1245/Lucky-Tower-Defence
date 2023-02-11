@@ -43,7 +43,6 @@ public class TowerDataViewer : MonoBehaviour
     {
         //출력해야하는 타워 정보를 받아와서 저장
         currentTower = cTower.GetComponent<TowerController>().tower;
-        currentTower_data = cTower.GetComponent<TowerData>();
         //타워 정보 Panel On
         gameObject.SetActive(true);
         //타워 정보를 갱신
@@ -58,7 +57,7 @@ public class TowerDataViewer : MonoBehaviour
     void UpdateTowerData()
 	{
         //textGold.text = "" + playerGold.CurrentGold;
-        textName.text = "" + currentTower_data.TowerName;
+        textName.text = "" + currentTower.towerName;
         textDamage.text = "Damage: " + currentTower.damage;
         textRate.text = "Rate: " + currentTower.attackSpeed;
         textRange.text = "Range: " + currentTower.range;

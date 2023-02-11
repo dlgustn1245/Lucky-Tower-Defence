@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour
 {
-	private bool state = false;
-
-	Tower currentTower;
-	ClickToShowData info;
+	bool state = false;
+	
+	public ClickToShowData info;
 	public GameManager gameManager;
+	Tower currentTower;
 
 	public void Start()
 	{
-		currentTower = info.target.GetComponent<TowerController>().tower;
+		//currentTower = info.target.GetComponent<TowerController>().tower;
 	}
 
     public void UpgradeButton()
@@ -31,12 +31,12 @@ public class ButtonEvent : MonoBehaviour
 
     public void UpgradeCommon()
 	{
-		if (currentTower.grade == TowerGrade.Common)
-        {
-			currentTower.attackSpeed++;
-			currentTower.damage++;
-			currentTower.range++;
-        }
+		// if (currentTower.grade == TowerGrade.Common)
+  //       {
+		// 	currentTower.attackSpeed++;
+		// 	currentTower.damage++;
+		// 	currentTower.range++;
+  //       }
 	}
 
 	public void UpgradeUnCommon()

@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Redcode.Pools;
 using UnityEngine;
 
 public class RandomTower : MonoBehaviour
 {
+    public PoolManager poolManager;
     public List<GameObject> towers = new List<GameObject>();
-    public Transform spawnPosition;
-
-    int total = 0;
+    int total;
     GameObject result;
 
     public void ResultSelect()
     {
+        if (GameManager.Instance.gold < 10)
+        {
+            return;
+        }
         result = GetRandomTower();
-        Instantiate(result, spawnPosition.position, Quaternion.identity); //생성오브젝트, 생성위치(포지션), 생성될각도
+        //int towerGrade = (int)result.GetComponent<TowerController>().tower.grade;
+        //poolManager.GetFromPool<TowerController>(towerGrade);
+        Instantiate(result, Vector2.zero, Quaternion.identity);
+        GameManager.Instance.gold -= 10;
+        GameManager.Instance.SetText();
     }
 
-    public GameObject GetRandomTower() //호출시 타워 리스트에서 가중치를 통한 임의의 타워 반환
+    GameObject GetRandomTower() //호출시 타워 리스트에서 가중치를 통한 임의의 타워 반환
     {
         int weight = 0; //가중치 변수
         int selectNum = Mathf.RoundToInt(total * Random.Range(0.0f, 1.0f)); //실수 0~1사이의 임의의값을 total에 곱함

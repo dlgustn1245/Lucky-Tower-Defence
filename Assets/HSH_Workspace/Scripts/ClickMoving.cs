@@ -7,13 +7,13 @@ public class ClickMoving : MonoBehaviour
     public Camera cam;
     
     //클릭된 오브젝트
-    TowerController target;
+    public TowerController target;
 
     bool selected;
 
     Vector2 mousePos, transPos;
     Vector2 touchPos;
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

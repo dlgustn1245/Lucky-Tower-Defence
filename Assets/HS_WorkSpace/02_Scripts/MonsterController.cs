@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterController : MonoBehaviour
 {
     [Header("Monster Stat")]
     public float maxHP;
     public float currentHP;
+    public EnemyGrade enemyGrade;
     private ObjectPooling objectPooling;
     Animator anim;
 
@@ -29,12 +31,18 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        
     }
     
     public void TakeDamage(int dmg, GameObject tower)
     {
+        currentHP -= dmg;
+        if(currentHP <= 0)
         {
+            if (enemyGrade == EnemyGrade.Boss)
+            {
+                GameManager.Instance.gold += 10;
+                GameManager.Instance.NextStage();
+            }
             //print("Monster Dead");
             anim.SetTrigger("Die");
             GameManager.Instance.monsterList.Remove(this.gameObject);
@@ -54,6 +62,7 @@ public class MonsterController : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        objectPooling.DeactivatePoolItem(gameObject);
+        //objectPooling.InactivatePoolItem(gameObject);
+        Destroy(this.gameObject);
     }
 }

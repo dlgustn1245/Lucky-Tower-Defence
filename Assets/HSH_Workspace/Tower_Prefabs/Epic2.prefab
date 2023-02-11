@@ -172,12 +172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
+    towerName: Epic2
     damage: 8
-    grade: 0
+    grade: 13
     weight: 1
     attackSpeed: 0.5
     range: 7
-    price: 0
+    price: 10
   boundary:
     xMin: -2.5
     xMax: 2.5
@@ -185,20 +186,3 @@ MonoBehaviour:
     yMax: 2.5
   isClicked: 0
   destination: {x: 0, y: 0}
---- !u!114 &1514288511066347121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5435471347000044387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2f56c764878fe42ad6855a4b54c9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gold: 10
-  towerName: Epic2
-  attackRate: 0.5
-  attackRange: 7
-  attackDamage: 8

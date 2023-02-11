@@ -79,7 +79,7 @@ public class ObjectPooling
         return null;
     }
 
-    public void DeactivatePoolItem(GameObject removeObject)
+    public void InactivatePoolItem(GameObject removeObject)
     {
         if (poolItemList == null || removeObject == null) return;
         int count = poolItemList.Count;
@@ -96,7 +96,7 @@ public class ObjectPooling
         }
     }
 
-    public void DeactivateAllPoolItems()
+    public void InactivateAllPoolItems()
     {
         if (poolItemList == null) return;
         int count = poolItemList.Count;

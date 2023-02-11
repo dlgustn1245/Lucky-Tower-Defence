@@ -14,7 +14,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Wave[] waves;
     private Wave currentWave;
-    private int waveCount = 0;
     private int currentWaveIndex = -1;
     private int spawnEnemyCount = 0;
 
@@ -27,15 +26,17 @@ public class EnemySpawner : MonoBehaviour
         StartWave();
     }
 
-    public void StartWave()
+    void StartWave()
     {
         StartCoroutine(SpawnEnemy());
     }
+    
     private IEnumerator SpawnEnemy()
     {
-        while (waveCount < waves.Length)
+        while (GameManager.Instance.currWave < waves.Length)
         {
-            waveCount++;
+            GameManager.Instance.currWave++;
+            GameManager.Instance.SetText();
             currentWaveIndex++;
             currentWave = waves[currentWaveIndex];
             spawnEnemyCount = 0;
@@ -50,18 +51,29 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnEnemyCount++;
                 ++GameManager.Instance.currMonsterCount;
+                GameManager.Instance.SetText();
+                if (GameManager.Instance.currMonsterCount >= GameManager.Instance.monsterCountLimit)
+                {
+                    GameManager.Instance.gameOver = true;
+                    StopAllCoroutines();
+                }
 
-                if(currentWave.enemyGrade == EnemyGrade.Low)
+                if (currentWave.enemyGrade == EnemyGrade.Low)
+                {
                     yield return new WaitForSeconds(currentWave.spawnTime);
-                else if(currentWave.enemyGrade == EnemyGrade.Low && spawnEnemyCount == currentWave.maxEnemyCount)
-                    yield return new WaitForSecondsRealtime(10f);
-                else if(currentWave.enemyGrade == EnemyGrade.Boss)
-                    yield return new WaitForSecondsRealtime(90f);
+                }
+                else if (currentWave.enemyGrade == EnemyGrade.Low && spawnEnemyCount == currentWave.maxEnemyCount)
+                {
+                    yield return new WaitForSeconds(10f);
+                }
+                else if (currentWave.enemyGrade == EnemyGrade.Boss)
+                {
+                    yield return new WaitForSeconds(90f);
+                }
             }
         }
     }
-
-
+    
     private void SpawnEnemyHPSlider(GameObject enemy)
     {
         GameObject sliderClone = Instantiate(enemyHPSliderPrefab);

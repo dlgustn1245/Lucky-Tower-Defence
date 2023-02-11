@@ -1,3 +1,4 @@
+using Redcode.Pools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,11 +6,17 @@ public class InGameButtonEvent : MonoBehaviour
 {
     public GameObject menuPanel;
     public UnityEngine.UI.Text pauseButtonText, speedUpButtonText;
+    public ClickMoving info;
+    public GameObject upgradePanel, towerInfo;
+    public PoolManager poolManager;
 
     bool isPaused;
     bool isSpeedUpActivated;
     int pauseCnt;
-
+    
+    bool state;
+    TowerController currentTower;
+    
     void Start()
     {
         pauseCnt = PlayerPrefs.GetInt("PauseCount", 2);
@@ -67,6 +74,60 @@ public class InGameButtonEvent : MonoBehaviour
             speedUpButtonText.text = "x2배속";
             Time.timeScale = 1.0f;
         }
+    }
+    #endregion
+    
+    #region Upgrade
+    public void UpgradeButton()
+    {
+        if (state == false)
+        {
+            upgradePanel.SetActive(true);
+            state = true;
+        }
+        else
+        {
+            upgradePanel.SetActive(false);
+            state = false;
+        }
+    }
+
+    public void UpgradeCommon()
+    {
+        
+    }
+
+    public void UpgradeUnCommon()
+    {
+
+    }
+
+    public void UpgradeRare()
+    {
+
+    }
+
+    public void UpgradeUnique()
+    {
+
+    }
+
+    public void UpgradeEpic()
+    {
+
+    }
+
+    public void UpgradeLegendary()
+    {
+
+    }
+    public void SellTower()
+    {
+        currentTower = info.target.GetComponent<TowerController>();
+        GameManager.Instance.gold += currentTower.tower.price;
+        GameManager.Instance.SetText();
+        towerInfo.SetActive(false);
+        poolManager.TakeToPool<TowerController>(currentTower.tower.grade.ToString(), currentTower);
     }
     #endregion
 }
