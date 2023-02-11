@@ -11,10 +11,8 @@ public class TowerSpawner : MonoBehaviour
 
     public void SpawnTower()
     {
-        Vector3 spawnPos = new Vector3(0, 0, -1);
-
         //선택한 타일의 위치에 타워 건설
-        Instantiate(towerPrefab, spawnPos, Quaternion.identity);
+        Instantiate(towerPrefab, Vector2.zero, Quaternion.identity);
     }
 
     // Start is called before the first frame update
