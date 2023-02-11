@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tower
-  - Common1
+  - Monster
+  - Common
+  - UnCommon
   layers:
   - Default
   - TransparentFX

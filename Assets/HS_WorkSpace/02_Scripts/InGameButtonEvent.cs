@@ -1,14 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviour
+public class InGameButtonEvent : MonoBehaviour
 {
     public GameObject menuPanel;
-    public Text pauseButtonText, speedUpButtonText;
+    public UnityEngine.UI.Text pauseButtonText, speedUpButtonText;
 
     bool isPaused;
     bool isSpeedUpActivated;
@@ -71,22 +67,6 @@ public class ButtonManager : MonoBehaviour
             speedUpButtonText.text = "x2배속";
             Time.timeScale = 1.0f;
         }
-    }
-    #endregion
-
-    #region TitleScene
-    public void OnClickStartGame()
-    {
-        SceneManager.LoadScene("Stage");
-    }
-
-    public void OnClickQuitGame()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
     }
     #endregion
 }
