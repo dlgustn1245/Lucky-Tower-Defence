@@ -1517,36 +1517,138 @@ MonoBehaviour:
   enemyHPSliderPrefab: {fileID: 8927362872107106083, guid: 590dacc74c090e640976bf45c1708ca6, type: 3}
   canvasTransform: {fileID: 1800031183}
   waves:
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 583884604118754339, guid: 0d9d0f7c15bb5e44a82264aab3c37050, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 3895000500016115858, guid: 0a22a42f6180f004db1dd67c981ee6b0, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 1595861598679001163, guid: d66b93a49b7446740b48bfcc92f36f6a, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 7890957551768020202, guid: 873710249e0cbab48b624601bc4d39b2, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
+  - enemyGrade: 0
+    spawnTime: 1
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 9037720183805489353, guid: d504c9def5dc1a04685ebe1a82ec35a7, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 6321095859116425185, guid: a84af7f520aa9404b907100f163bc0a3, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 7223078533455862428, guid: 5ee469c27a4d9194d8969780ba694fb2, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 8885757829017722006, guid: 3eb7a3770e4380240a5f92898d7c616b, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
     enemyPrefab: {fileID: 5932160859497479857, guid: 6cdbaade404f4a24c9ec12da14238d13, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 5258738980503891153, guid: 0b08649a4eee5ff4f948e8c6cee7a80b, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 4308636970936118313, guid: e32b1e3536d2e8141b249e98cd2a066d, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 6793340188059193523, guid: d4a189df0716af54493b5e894f17af75, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
     enemyPrefab: {fileID: 9163089426579142976, guid: 13a6d77c2854712478ea3339fc5f9638, type: 3}
-  - spawnTime: 1
-    maxEnemyCount: 10
-    enemyPrefab: {fileID: 2536093398813865148, guid: 0957fe4eb7761be458d911ca124295c6, type: 3}
-  - spawnTime: 1
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 4058700407376282233, guid: 98a963fa38e27cb4290586e0fd6c6a23, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 6702140171353667949, guid: c960f4cb008d59f4cb5c401991569a95, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 4472490200810815671, guid: a6a8ec5f7554c0441814f49b563ea9dc, type: 3}
+  - enemyGrade: 1
+    spawnTime: 0.5
     maxEnemyCount: 1
     enemyPrefab: {fileID: 2925527517674433393, guid: e15765259e803a54eae9f2a980dfacba, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 2536093398813865148, guid: 0957fe4eb7761be458d911ca124295c6, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 3951492014095570090, guid: bf7e4bd451233ad4c9e605192a487355, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 3895000500016115858, guid: 0a22a42f6180f004db1dd67c981ee6b0, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 3769643884151960810, guid: 667b83c3926a88540be81597f35ed0c7, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 6059620924747015319, guid: 3e84a40bc0614834c845d2896b074a16, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 4456331459016828187, guid: a276293ace55857488f42323d40b4d4d, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 4308636970936118313, guid: e32b1e3536d2e8141b249e98cd2a066d, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 2963668446881972211, guid: 8e65a23ebc551b649a9e0fe31d746870, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 1188825975455633828, guid: 0dd0081b3ccaaee43847861b75d3bdf8, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 8504110651426568591, guid: 9071a44b1699edc43a23197b0bcba134, type: 3}
+  - enemyGrade: 1
+    spawnTime: 10
+    maxEnemyCount: 2
+    enemyPrefab: {fileID: 4087970576026282586, guid: 43419c8d59307c64395e4573a605c085, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 1034090821505367210, guid: 38be5d41fc15b05489877dc3182eb0f0, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 9201339509397060066, guid: 929be21070ffae9449eb0e9c2f39604b, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 583884604118754339, guid: 0d9d0f7c15bb5e44a82264aab3c37050, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 1595861598679001163, guid: d66b93a49b7446740b48bfcc92f36f6a, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 2622388714150525205, guid: f662123126bb89c4daedec412e88f312, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 3557166970456289729, guid: ad059a0b09f799c4db68195365ae213a, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 5258738980503891153, guid: 0b08649a4eee5ff4f948e8c6cee7a80b, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 7890957551768020202, guid: 873710249e0cbab48b624601bc4d39b2, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 860581336232014877, guid: a8ee5cdeef3dab246a43f5b357e61a17, type: 3}
+  - enemyGrade: 0
+    spawnTime: 0.5
+    maxEnemyCount: 30
+    enemyPrefab: {fileID: 6196387149518419686, guid: 2e551a28a09973a428de99995ff7ebc1, type: 3}
+  - enemyGrade: 1
+    spawnTime: 0.5
+    maxEnemyCount: 1
+    enemyPrefab: {fileID: 5122605360274088336, guid: 7bd64248009aebd46a304a11e7e57bd0, type: 3}
 --- !u!4 &148699998
 Transform:
   m_ObjectHideFlags: 0
