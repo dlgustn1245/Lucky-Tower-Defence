@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4556087360953339108, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: tower.weight
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4556087360953339108, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: tower.towerName

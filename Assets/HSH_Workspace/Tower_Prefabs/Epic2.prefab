@@ -175,7 +175,7 @@ MonoBehaviour:
     towerName: Epic2
     damage: 8
     grade: 13
-    weight: 1
+    weight: 3
     attackSpeed: 0.5
     range: 7
     price: 10

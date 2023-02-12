@@ -4,8 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
+    static GameManager instance = null;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                return null;
+            }
+
+            return instance;
+        } 
+    }
+    
     public Dictionary<GameObject, bool> monsterList = new Dictionary<GameObject, bool>();
     public Text timer, monsterCount, round, goldText;
     public int currMonsterCount;
@@ -24,9 +38,16 @@ public class GameManager : Singleton<GameManager>
     int roundToClear;
     int maxStage;
 
-    new void Awake()
+    void Awake()
     {
-        base.Awake();
+        if (!instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Start()
