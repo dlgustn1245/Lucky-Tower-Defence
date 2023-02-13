@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerName: Epic2
+    towerName: Epic02
     damage: 8
     grade: 13
     weight: 3

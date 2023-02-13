@@ -7,11 +7,11 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public List<PoolObjectData> poolObjectDataList = new List<PoolObjectData>();
-
-    Dictionary<string, PoolObject> sampleDict;
+    
+    public Dictionary<string, Stack<TowerController>> poolDict;
+    Dictionary<string, TowerController> sampleDict;
     Dictionary<string, PoolObjectData> dataDict;
-    Dictionary<string, Stack<PoolObject>> poolDict;
-
+    
     void Start()
     {
         Init();
@@ -25,9 +25,9 @@ public class ObjectPoolManager : MonoBehaviour
             return;
         }
 
-        sampleDict = new Dictionary<string, PoolObject>(len);
+        sampleDict = new Dictionary<string, TowerController>(len);
         dataDict = new Dictionary<string, PoolObjectData>(len);
-        poolDict = new Dictionary<string, Stack<PoolObject>>(len);
+        poolDict = new Dictionary<string, Stack<TowerController>>(len);
 
         foreach (var data in poolObjectDataList)
         {
@@ -43,45 +43,46 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         GameObject sample = Instantiate(data.prefab);
-        if (!sample.TryGetComponent(out PoolObject po))
-        {
-            po = sample.AddComponent<PoolObject>();
-            po.key = data.key;
-        }
+        // if (!sample.TryGetComponent(out PoolObject po))
+        // {
+        //     po = sample.AddComponent<PoolObject>();
+        //     po.key = data.key;
+        // }
+        TowerController towerObj = sample.GetComponent<TowerController>();
         sample.SetActive(false);
 
-        Stack<PoolObject> pool = new Stack<PoolObject>(data.maxObjectCount);
+        Stack<TowerController> pool = new Stack<TowerController>(data.maxObjectCount);
         for (int i = 0; i < data.initialObjectCount; i++)
         {
-            PoolObject clone = po.Clone();
+            TowerController clone = towerObj.Clone();
             pool.Push(clone);
         }
 
-        sampleDict.Add(data.key, po);
+        sampleDict.Add(data.key, towerObj);
         dataDict.Add(data.key, data);
         poolDict.Add(data.key, pool);
     }
 
-    public PoolObject Spawn(string key)
+    public TowerController GetTower(string key)
     {
         if (!poolDict.TryGetValue(key, out var pool))
         {
             return null;
         }
 
-        PoolObject po = pool.Count > 0 ? pool.Pop() : sampleDict[key].Clone();
-        po.gameObject.SetActive(true);
-        return po;
+        TowerController tower = pool.Count > 0 ? pool.Pop() : sampleDict[key].Clone();
+        tower.gameObject.SetActive(true);
+        return tower;
     }
 
-    public void Despawn(PoolObject po)
+    public void ReturnTower(TowerController po)
     {
-        if (!poolDict.TryGetValue(po.key, out var pool))
+        if (!poolDict.TryGetValue(po.tower.towerName, out var pool))
         {
             return;
         }
 
-        string key = po.key;
+        string key = po.tower.towerName;
 
         if (pool.Count < dataDict[key].maxObjectCount)
         {

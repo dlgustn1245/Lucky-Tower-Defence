@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerName: Legendary1
+    towerName: Legendary
     damage: 5
     grade: 14
     weight: 1

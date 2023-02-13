@@ -17,7 +17,7 @@ public class RandomTower : MonoBehaviour
         }
         result = GetRandomTower();
         
-        objectPoolManager.Spawn(result.tower.grade.ToString());
+        objectPoolManager.GetTower(result.tower.grade.ToString());
         
         GameManager.Instance.gold -= 10;
         GameManager.Instance.SetText();

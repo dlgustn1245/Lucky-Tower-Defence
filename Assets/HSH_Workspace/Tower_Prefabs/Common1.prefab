@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerName: Common1
+    towerName: Common01
+    key: Common01
     damage: 1
     grade: 0
     weight: 50

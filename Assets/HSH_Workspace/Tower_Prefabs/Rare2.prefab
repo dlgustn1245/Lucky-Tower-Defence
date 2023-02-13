@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerName: Rare2
+    towerName: Rare02
     damage: 3
     grade: 7
     weight: 10
