@@ -14,11 +14,14 @@ public class ClickMoving : MonoBehaviour
     Vector2 mousePos, transPos;
     Vector2 touchPos;
 
-    void Update()
+    public Animator Anim;
+
+	void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             SelectTower();
+            Anim.SetTrigger("Run");
         }
         if (Input.GetMouseButtonDown(1) && selected)
         {
@@ -30,6 +33,7 @@ public class ClickMoving : MonoBehaviour
         {
             selected = false;
             target.isClicked = false;
+            Anim.SetTrigger("Stop");
         }
     }
 
@@ -37,12 +41,20 @@ public class ClickMoving : MonoBehaviour
     {
         touchPos = cam.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(touchPos, cam.transform.forward);
-    
-        if (hit.collider && hit.collider.gameObject.CompareTag("Tower"))
-        {
-            target = hit.collider.gameObject.GetComponent<TowerController>();
-            selected = true;
-        }
+
+		if (hit.collider && hit.collider.gameObject.CompareTag("Tower"))
+		{
+			target = hit.collider.gameObject.GetComponent<TowerController>();
+			selected = true;
+		}
+
+        Anim = target.GetComponent<Animator>();
+
+        /*if (hit.transform.CompareTag("Tower"))
+		{
+			target = hit.transform.GetComponent<TowerController>();
+			selected = true;
+		}*/
     }
 
     Vector2 CalDestPos()
