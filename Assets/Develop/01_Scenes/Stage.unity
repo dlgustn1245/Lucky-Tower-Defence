@@ -562,7 +562,7 @@ RectTransform:
   m_Children:
   - {fileID: 1602082844}
   m_Father: {fileID: 1998848318}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -853,8 +853,8 @@ MonoBehaviour:
   - {fileID: 1658151885}
   gameClear: 0
   gameOver: 0
-  gold: 100
-  monsterCountLimit: 50
+  gold: 20
+  monsterCountLimit: 150
 --- !u!4 &71584374
 Transform:
   m_ObjectHideFlags: 0
@@ -3129,7 +3129,7 @@ GameObject:
   - component: {fileID: 202911535}
   - component: {fileID: 202911534}
   m_Layer: 5
-  m_Name: TextRange
+  m_Name: SpeedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3147,11 +3147,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1998848318}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: -69}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 310, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202911534
@@ -3176,18 +3176,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Range: 0000'
+  m_Text: 'AtkSpeed: 0.0'
 --- !u!222 &202911535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10200,7 +10200,7 @@ MonoBehaviour:
     maxEnemyCount: 30
     enemyPrefab: {fileID: 8504110651426568591, guid: 9071a44b1699edc43a23197b0bcba134, type: 3}
   - enemyGrade: 1
-    spawnTime: 1
+    spawnTime: 10
     maxEnemyCount: 2
     enemyPrefab: {fileID: 4087970576026282586, guid: 43419c8d59307c64395e4573a605c085, type: 3}
   - enemyGrade: 0
@@ -10244,8 +10244,8 @@ MonoBehaviour:
     maxEnemyCount: 30
     enemyPrefab: {fileID: 6196387149518419686, guid: 2e551a28a09973a428de99995ff7ebc1, type: 3}
   - enemyGrade: 1
-    spawnTime: 1
-    maxEnemyCount: 1
+    spawnTime: 10
+    maxEnemyCount: 2
     enemyPrefab: {fileID: 5122605360274088336, guid: 7bd64248009aebd46a304a11e7e57bd0, type: 3}
 --- !u!4 &737964310
 Transform:
@@ -10335,7 +10335,7 @@ GameObject:
   - component: {fileID: 757334176}
   - component: {fileID: 757334175}
   m_Layer: 5
-  m_Name: TextDamage
+  m_Name: GradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10353,11 +10353,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1998848318}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 81}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 310, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757334175
@@ -10382,18 +10382,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Damage: 0000'
+  m_Text: 'Grade: UnCommon01'
 --- !u!222 &757334176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21500,85 +21500,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526826484}
   m_CullTransparentMesh: 1
---- !u!1 &1538754778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1538754779}
-  - component: {fileID: 1538754781}
-  - component: {fileID: 1538754780}
-  m_Layer: 5
-  m_Name: TextName
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1538754779
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538754778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1998848318}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 185}
-  m_SizeDelta: {x: 270, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1538754780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538754778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 50
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Tower Name
---- !u!222 &1538754781
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538754778}
-  m_CullTransparentMesh: 1
 --- !u!114 &1539787565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29595,7 +29516,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1538754779}
   - {fileID: 757334174}
   - {fileID: 2041133155}
   - {fileID: 202911533}
@@ -29606,7 +29526,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1705, y: -475}
-  m_SizeDelta: {x: 384.6406, y: 554.9}
+  m_SizeDelta: {x: 385, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998848319
 MonoBehaviour:
@@ -29620,11 +29540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1830274242244947a18355b2ee62c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textName: {fileID: 1538754780}
-  textDamage: {fileID: 757334175}
-  textRate: {fileID: 2041133156}
-  textRange: {fileID: 202911534}
-  textLevel: {fileID: 0}
+  gradeText: {fileID: 757334175}
+  dmgText: {fileID: 2041133156}
+  atkSpeedText: {fileID: 202911534}
 --- !u!114 &1998848320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30407,7 +30325,7 @@ GameObject:
   - component: {fileID: 2041133157}
   - component: {fileID: 2041133156}
   m_Layer: 5
-  m_Name: TextRate
+  m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30425,11 +30343,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1998848318}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 11}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 310, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041133156
@@ -30454,18 +30372,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Speed: 0000'
+  m_Text: 'AtkDmg: 0'
 --- !u!222 &2041133157
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,32 +1,22 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MonsterController : MonoBehaviour
 {
     [Header("Monster Stat")]
     public float maxHP;
-    public float currentHP;
+    public float currHP;
     public EnemyGrade enemyGrade;
-    private ObjectPooling objectPooling;
+    public int gold;
     Animator anim;
 
     void Awake()
     {
-        currentHP = maxHP;
         anim = GetComponent<Animator>();
     }
-
-    public void Setup(ObjectPooling objectPooling)
-    {
-        this.objectPooling = objectPooling;
-    }
-
     void Start()
     {
-        
+        currHP = maxHP;
     }
 
     void Update()
@@ -35,8 +25,8 @@ public class MonsterController : MonoBehaviour
     
     public void TakeDamage(int dmg, GameObject tower)
     {
-        currentHP -= dmg;
-        if(currentHP <= 0)
+        currHP -= dmg;
+        if(currHP <= 0)
         {
             if (enemyGrade == EnemyGrade.Boss)
             {

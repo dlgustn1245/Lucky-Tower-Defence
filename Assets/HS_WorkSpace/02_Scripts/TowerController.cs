@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Boundary
@@ -15,23 +13,18 @@ public class Boundary
 
 public class TowerController : MonoBehaviour
 {
-    Animator anim;
     GameObject targetMonster;
 
     public Tower tower;
     public Boundary boundary;
     public bool isClicked;
     public Vector2 destination = Vector2.zero;
-
     public Animator towerAnim;
+    public float moveSpeed = 5.0f;
+
+    bool runAnimTrigger;
 
     float speed = 10.0f;
-
-    void Awake()
-    {
-        anim = GetComponent<Animator>();
-        towerAnim = GetComponent<Animator>();
-    }
 
     void OnEnable()
     {
@@ -47,11 +40,13 @@ public class TowerController : MonoBehaviour
     {
         if (isClicked)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * 10.0f);
+            runAnimTrigger = true;
+            this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * moveSpeed);
             if (Vector2.Distance(this.transform.position, destination) < 0.1f)
             {
                 isClicked = false;
                 destination = Vector2.zero;
+                //towerAnim.SetBool("Run", false);
             }
         }
 
@@ -59,7 +54,17 @@ public class TowerController : MonoBehaviour
         {
             isClicked = false;
             destination = Vector2.zero;
+            //towerAnim.SetBool("Run", false);
         }
+        
+        #region Animation
+
+        if (runAnimTrigger)
+        {
+            runAnimTrigger = false;
+            //towerAnim.SetBool("Run", true);
+        }
+        #endregion
     }
 
     bool IsPositionInRange()
@@ -74,6 +79,7 @@ public class TowerController : MonoBehaviour
         {
             return;
         }
+        towerAnim.SetTrigger("Attack");
         monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
     }
 
@@ -115,8 +121,6 @@ public class TowerController : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            //print("Detect Enemy");
-            towerAnim.SetTrigger("Attack");
             GameManager.Instance.monsterList[collision.gameObject] = true;
         }
     }

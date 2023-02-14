@@ -1,25 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TMPro.SpriteAssetUtilities;
 
 public class TowerDataViewer : MonoBehaviour
 {
-    /*[SerializeField]
-    private TextMeshProUGUI textGold;*/
-    /*[SerializeField]
-    private Image imageTower;*/
-    [SerializeField]
-    private Text textName;
-    [SerializeField]
-    private Text textDamage;
-    [SerializeField]
-    private Text textRate;
-    [SerializeField]
-    private Text textRange;
-    [SerializeField]
-    private Text textLevel;
+    public Text gradeText;
+    public Text dmgText;
+    public Text atkSpeedText;
 
     Tower currentTower;
     TowerData currentTower_data;
@@ -55,11 +46,50 @@ public class TowerDataViewer : MonoBehaviour
     }
 
     void UpdateTowerData()
-	{
-        //textGold.text = "" + playerGold.CurrentGold;
-        textName.text = "" + currentTower.towerName;
-        textDamage.text = "Damage: " + currentTower.damage;
-        textRate.text = "Rate: " + currentTower.attackSpeed;
-        textRange.text = "Range: " + currentTower.range;
+    {
+        string grade = String.Empty;
+        switch (currentTower.grade)
+        {
+            case TowerGrade.Common01:
+            case TowerGrade.Common02:
+            case TowerGrade.Common03:
+            {
+                grade = "Common";
+                break;
+            }
+            case TowerGrade.UnCommon01:
+            case TowerGrade.UnCommon02:
+            case TowerGrade.UnCommon03:
+            {
+                grade = "UnCommon";
+                break;
+            }
+            case TowerGrade.Rare01:
+            case TowerGrade.Rare02:
+            case TowerGrade.Rare03:
+            {
+                grade = "Rare";
+                break;
+            }
+            case TowerGrade.Unique01:
+            case TowerGrade.Unique02:
+            case TowerGrade.Unique03:
+            {
+                grade = "Unique";
+                break;
+            }
+            case TowerGrade.Epic01:
+            case TowerGrade.Epic02:
+            {
+                grade = "Epic";
+                break;
+            }
+            case TowerGrade.Legendary:
+                grade = "Legendary";
+                break;
+        }
+        gradeText.text = "Grade: " + grade;
+        dmgText.text = "AtkDamage : " + currentTower.damage;
+        atkSpeedText.text = "AtkSpeed : " + currentTower.attackSpeed;
     }
 }

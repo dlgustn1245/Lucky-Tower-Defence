@@ -14,14 +14,11 @@ public class ClickMoving : MonoBehaviour
     Vector2 mousePos, transPos;
     Vector2 touchPos;
 
-    public Animator Anim;
-
-	void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             SelectTower();
-            Anim.SetTrigger("Run");
         }
         if (Input.GetMouseButtonDown(1) && selected)
         {
@@ -33,7 +30,6 @@ public class ClickMoving : MonoBehaviour
         {
             selected = false;
             target.isClicked = false;
-            Anim.SetTrigger("Stop");
         }
     }
 
@@ -48,13 +44,11 @@ public class ClickMoving : MonoBehaviour
 			selected = true;
 		}
 
-        Anim = target.GetComponent<Animator>();
-
-        /*if (hit.transform.CompareTag("Tower"))
-		{
-			target = hit.transform.GetComponent<TowerController>();
-			selected = true;
-		}*/
+  //       if (hit.transform.CompareTag("Tower"))
+		// {
+		// 	target = hit.transform.GetComponent<TowerController>();
+		// 	selected = true;
+		// }
     }
 
     Vector2 CalDestPos()

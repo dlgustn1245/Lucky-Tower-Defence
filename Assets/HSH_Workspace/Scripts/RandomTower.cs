@@ -5,7 +5,7 @@ public class RandomTower : MonoBehaviour
 {
     public List<TowerController> towers = new List<TowerController>();
     public ObjectPoolManager objectPoolManager;
-    int total;
+    float total;
     int poolCnt;
     TowerController result;
 
@@ -25,7 +25,7 @@ public class RandomTower : MonoBehaviour
 
     TowerController GetRandomTower() //호출시 타워 리스트에서 가중치를 통한 임의의 타워 반환
     {
-        int weight = 0; //가중치 변수
+        float weight = 0; //가중치 변수
         int selectNum = Mathf.RoundToInt(total * Random.Range(0.0f, 1.0f)); //실수 0~1사이의 임의의값을 total에 곱함
 
         for (int i = 0; i < towers.Count; i++)

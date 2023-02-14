@@ -6,7 +6,7 @@ public class Tower
     public string towerName;
     public int damage;
     public TowerGrade grade;
-    public int weight;
+    public float weight;
     public float attackSpeed;
     public float range;
     public int price;

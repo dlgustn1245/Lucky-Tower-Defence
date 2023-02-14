@@ -16,6 +16,6 @@ public class EnemyHPViewer : MonoBehaviour
 
     void Update()
     {
-        hpSlider.value = monsterController.currentHP / monsterController.maxHP;
+        hpSlider.value = monsterController.currHP / monsterController.maxHP;
     }
 }
