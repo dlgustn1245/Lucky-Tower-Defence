@@ -35,6 +35,22 @@ PrefabInstance:
       propertyPath: tower.attackSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -1182931598106819761, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: m_Size.x
+      value: 3.0543156
+      objectReference: {fileID: 0}
+    - target: {fileID: -1182931598106819761, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1419404
+      objectReference: {fileID: 0}
+    - target: {fileID: -1182931598106819761, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.24827027
+      objectReference: {fileID: 0}
+    - target: {fileID: -1182931598106819761, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5285665
+      objectReference: {fileID: 0}
     - target: {fileID: 3890710566895470131, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: m_labelHash
       value: 1.6593167e-18

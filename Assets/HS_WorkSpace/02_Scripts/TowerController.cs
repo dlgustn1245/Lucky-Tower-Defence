@@ -23,11 +23,14 @@ public class TowerController : MonoBehaviour
     public bool isClicked;
     public Vector2 destination = Vector2.zero;
 
+    public Animator towerAnim;
+
     float speed = 10.0f;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        towerAnim = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -113,6 +116,7 @@ public class TowerController : MonoBehaviour
         if (collision.CompareTag("Monster"))
         {
             //print("Detect Enemy");
+            towerAnim.SetTrigger("Attack");
             GameManager.Instance.monsterList[collision.gameObject] = true;
         }
     }
