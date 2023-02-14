@@ -1,4 +1,4 @@
-using Redcode.Pools;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,13 +8,15 @@ public class InGameButtonEvent : MonoBehaviour
     public UnityEngine.UI.Text pauseButtonText, speedUpButtonText;
     public ClickMoving info;
     public GameObject upgradePanel, towerInfo;
-    public PoolManager poolManager;
-
+    public ObjectPoolManager objectPoolManager;
+    
+    string grade;
     bool isPaused;
     bool isSpeedUpActivated;
     int pauseCnt;
-    
     bool state;
+
+    Stack<TowerController> stack;
     TowerController currentTower;
     
     void Start()
@@ -124,10 +126,10 @@ public class InGameButtonEvent : MonoBehaviour
     public void SellTower()
     {
         currentTower = info.target.GetComponent<TowerController>();
-        GameManager.Instance.gold += currentTower.tower.price;
+        GameManager.Instance.gold += currentTower.GetComponent<TowerController>().tower.price;
         GameManager.Instance.SetText();
         towerInfo.SetActive(false);
-        poolManager.TakeToPool<TowerController>(currentTower.tower.grade.ToString(), currentTower);
+        objectPoolManager.ReturnTower(currentTower);
     }
     #endregion
 }

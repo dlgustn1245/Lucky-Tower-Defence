@@ -30,11 +30,14 @@ public class TowerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Start()
+    void OnEnable()
     {
-        //this.gameObject.GetComponent<CircleCollider2D>().radius = tower.range;
-        //print(tower.range);
-        StartCoroutine(Attack());   
+        StartCoroutine(Attack());
+    }
+
+    void OnDisable()
+    {
+        this.gameObject.transform.position = Vector2.zero;
     }
 
     void Update()
@@ -71,7 +74,21 @@ public class TowerController : MonoBehaviour
         monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
     }
 
-    public IEnumerator Attack()
+    public TowerController Clone()
+    {
+        GameObject go = Instantiate(this.gameObject);
+        go.SetActive(false);
+        return go.GetComponent<TowerController>();
+    }
+
+    public void UpgradeTower()
+    {
+        this.tower.attackSpeed -= 0.1f;
+        this.tower.damage += 1;
+        this.tower.price += 5;
+    }
+
+    IEnumerator Attack()
     {
         while (true)
         {

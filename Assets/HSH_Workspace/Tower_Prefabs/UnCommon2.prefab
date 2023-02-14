@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerName: UnCommon2
+    towerName: UnCommon02
     damage: 2
     grade: 4
     weight: 30

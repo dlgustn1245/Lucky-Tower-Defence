@@ -8,6 +8,8 @@ TagManager:
   - Monster
   - Common
   - UnCommon
+  - Map
+  - Common1
   layers:
   - Default
   - TransparentFX

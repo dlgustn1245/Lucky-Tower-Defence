@@ -36,6 +36,10 @@ public class ClickToShowData : MonoBehaviour
                     target = hit.collider.gameObject;
                     towerDataViewer.OnPanel(target.transform);
                 }
+                else
+                {
+                    towerDataViewer.OffPanel();
+                }
             }
         }
     }
