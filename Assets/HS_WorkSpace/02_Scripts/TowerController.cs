@@ -90,6 +90,33 @@ public class TowerController : MonoBehaviour
         return go.GetComponent<TowerController>();
     }
 
+    #region Upgrade
+    public void UpgradeCommon()
+    {
+        print("Common Upgrade");
+    }
+    public void UpgradeUnCommon()
+    {
+        print("UnCommon Upgrade");
+    }
+    public void UpgradeRare()
+    {
+        print("Rare Upgrade");
+    }
+    public void UpgradeUnique()
+    {
+        print("Unique Upgrade");
+    }
+    public void UpgradeEpic()
+    {
+        print("Epic Upgrade");
+    }
+    public void UpgradeLegendary()
+    {
+        print("Legendary Upgrade");
+    }
+    #endregion
+
     IEnumerator Attack()
     {
         while (true)

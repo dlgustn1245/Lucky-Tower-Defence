@@ -50,36 +50,36 @@ public class TowerDataViewer : MonoBehaviour
         string grade = String.Empty;
         switch (currentTower.grade)
         {
-            case TowerGrade.Common01:
-            case TowerGrade.Common02:
-            case TowerGrade.Common03:
+            case TowerGrade.Common1:
+            case TowerGrade.Common2:
+            case TowerGrade.Common3:
             {
                 grade = "Common";
                 break;
             }
-            case TowerGrade.UnCommon01:
-            case TowerGrade.UnCommon02:
-            case TowerGrade.UnCommon03:
+            case TowerGrade.UnCommon1:
+            case TowerGrade.UnCommon2:
+            case TowerGrade.UnCommon3:
             {
                 grade = "UnCommon";
                 break;
             }
-            case TowerGrade.Rare01:
-            case TowerGrade.Rare02:
-            case TowerGrade.Rare03:
+            case TowerGrade.Rare1:
+            case TowerGrade.Rare2:
+            case TowerGrade.Rare3:
             {
                 grade = "Rare";
                 break;
             }
-            case TowerGrade.Unique01:
-            case TowerGrade.Unique02:
-            case TowerGrade.Unique03:
+            case TowerGrade.Unique1:
+            case TowerGrade.Unique2:
+            case TowerGrade.Unique3:
             {
                 grade = "Unique";
                 break;
             }
-            case TowerGrade.Epic01:
-            case TowerGrade.Epic02:
+            case TowerGrade.Epic1:
+            case TowerGrade.Epic2:
             {
                 grade = "Epic";
                 break;

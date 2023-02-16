@@ -8,7 +8,7 @@ public class TowerObjectPoolManager : MonoBehaviour
     public List<TowerPoolObjectData> poolObjectDataList = new List<TowerPoolObjectData>();
     
     public Dictionary<string, TowerController> sampleDict;
-    Dictionary<string, Stack<TowerController>> poolDict;
+    public Dictionary<string, Stack<TowerController>> poolDict;
     Dictionary<string, TowerPoolObjectData> dataDict;
     
     void Start()

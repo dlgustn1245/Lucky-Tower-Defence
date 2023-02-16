@@ -5394,7 +5394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &368647771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10118,7 +10118,7 @@ MonoBehaviour:
   waves:
   - key: 
     enemyGrade: 0
-    spawnTime: 0.1
+    spawnTime: 1
     maxEnemyCount: 30
     enemyPrefab: {fileID: 9037720183805489353, guid: d504c9def5dc1a04685ebe1a82ec35a7, type: 3}
   - key: 
