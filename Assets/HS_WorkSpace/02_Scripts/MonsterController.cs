@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,8 +9,9 @@ public class MonsterController : MonoBehaviour
     public float currHP;
     public string key;
     public EnemyGrade enemyGrade;
-    public int gold;
     Animator anim;
+
+    public MonsterObjectPoolManager objectPoolManager;
 
     void Awake()
     {
@@ -18,6 +20,11 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         currHP = maxHP;
+    }
+
+    void OnDisable()
+    {
+        this.gameObject.transform.position = new Vector3(0.0f, 3.5f, 0.0f);
     }
 
     public MonsterController Clone()
@@ -57,6 +64,7 @@ public class MonsterController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         //objectPooling.InactivatePoolItem(gameObject);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        objectPoolManager.ReturnMonster(this);
     }
 }

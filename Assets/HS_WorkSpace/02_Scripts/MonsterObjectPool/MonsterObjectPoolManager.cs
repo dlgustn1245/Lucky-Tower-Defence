@@ -17,6 +17,11 @@ public class MonsterObjectPoolManager : MonoBehaviour
 
     void Init()
     {
+        for (int i = 0; i < poolObjectDataList.Count; i++)
+        {
+            poolObjectDataList[i].key = poolObjectDataList[i].prefab.name;
+        }
+        
         int len = poolObjectDataList.Count;
         if (len == 0)
         {
@@ -41,17 +46,17 @@ public class MonsterObjectPoolManager : MonoBehaviour
         }
 
         GameObject sample = Instantiate(data.prefab);
-        MonsterController towerObj = sample.GetComponent<MonsterController>();
+        MonsterController monsterObj = sample.GetComponent<MonsterController>();
         sample.SetActive(false);
 
         Stack<MonsterController> pool = new Stack<MonsterController>(data.maxObjectCount);
         for (int i = 0; i < data.maxObjectCount; i++)
         {
-            MonsterController clone = towerObj.Clone();
+            MonsterController clone = monsterObj.Clone();
             pool.Push(clone);
         }
 
-        sampleDict.Add(data.key, towerObj);
+        sampleDict.Add(data.key, monsterObj);
         dataDict.Add(data.key, data);
         poolDict.Add(data.key, pool);
     }
@@ -64,11 +69,11 @@ public class MonsterObjectPoolManager : MonoBehaviour
         }
 
         var monster = pool.Count > 0 ? pool.Pop() : sampleDict[key].Clone();
-        monster.gameObject.SetActive(false);
+        monster.gameObject.SetActive(true);
         return monster;
     }
     
-    public void ReturnTower(MonsterController monster)
+    public void ReturnMonster(MonsterController monster)
     {
         if (!poolDict.TryGetValue(monster.key, out var pool))
         {

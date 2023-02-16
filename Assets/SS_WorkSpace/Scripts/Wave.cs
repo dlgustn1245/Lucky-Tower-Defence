@@ -7,6 +7,7 @@ public enum EnemyGrade { Low, Boss }
 [System.Serializable]
 public class Wave
 {
+    public string key;
     public EnemyGrade enemyGrade;
     public float spawnTime;
     public int maxEnemyCount;

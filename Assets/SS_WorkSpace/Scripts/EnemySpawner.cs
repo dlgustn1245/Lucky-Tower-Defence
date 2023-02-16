@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public MonsterObjectPoolManager objectPoolManager;
     [SerializeField]
     private Transform[] wayPoints;  // 스테이지 이동 경로
     [SerializeField]
@@ -17,20 +18,15 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveIndex = -1;
     private int spawnEnemyCount = 0;
 
-    void Awake()
-    {
-    }
-
     void Start()
     {
-        StartWave();
-    }
-
-    void StartWave()
-    {
+        for (int i = 0; i < waves.Length; i++)
+        {
+            waves[i].key = waves[i].enemyPrefab.name;
+        }
         StartCoroutine(SpawnEnemy());
     }
-    
+
     private IEnumerator SpawnEnemy()
     {
         while (GameManager.Instance.currWave < waves.Length)
@@ -40,9 +36,9 @@ public class EnemySpawner : MonoBehaviour
             currentWaveIndex++;
             currentWave = waves[currentWaveIndex];
             spawnEnemyCount = 0;
-            while (spawnEnemyCount < currentWave.maxEnemyCount)
+            while (spawnEnemyCount < objectPoolManager.poolObjectDataList[currentWaveIndex].maxObjectCount)
             {
-                GameObject clone = Instantiate(currentWave.enemyPrefab);
+                GameObject clone = objectPoolManager.GetMonster(currentWave.key).gameObject;
                 EnemyMove enemyMove = clone.GetComponent<EnemyMove>();
                 
                 enemyMove.Setup(wayPoints);
