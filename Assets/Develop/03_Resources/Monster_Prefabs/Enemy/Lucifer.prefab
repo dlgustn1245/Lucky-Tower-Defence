@@ -281,8 +281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 30
   currHP: 0
+  key: Lucifer
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &-2526007991945397676
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -378,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10000
   currHP: 0
+  key: Heresy
   enemyGrade: 1
   gold: 75
 --- !u!1 &5122605360589193290

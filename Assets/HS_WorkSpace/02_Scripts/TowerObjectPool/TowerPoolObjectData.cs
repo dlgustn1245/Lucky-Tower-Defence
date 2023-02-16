@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class PoolObjectData
+public class TowerPoolObjectData
 {
     public const int initCount = 10;
     public const int maxCount = 50;

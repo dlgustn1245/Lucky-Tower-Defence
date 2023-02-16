@@ -6,6 +6,7 @@ public class MonsterController : MonoBehaviour
     [Header("Monster Stat")]
     public float maxHP;
     public float currHP;
+    public string key;
     public EnemyGrade enemyGrade;
     public int gold;
     Animator anim;
@@ -19,10 +20,13 @@ public class MonsterController : MonoBehaviour
         currHP = maxHP;
     }
 
-    void Update()
+    public MonsterController Clone()
     {
+        GameObject go = Instantiate(this.gameObject);
+        go.SetActive(false);
+        return go.GetComponent<MonsterController>();
     }
-    
+
     public void TakeDamage(int dmg, GameObject tower)
     {
         currHP -= dmg;

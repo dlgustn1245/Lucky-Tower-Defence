@@ -1191,6 +1191,7 @@ MonoBehaviour:
     attackSpeed: 1.5
     range: 7
     price: 10
+  key: Common02
   boundary:
     xMin: -2.5
     xMax: 2.5
@@ -1199,6 +1200,7 @@ MonoBehaviour:
   isClicked: 0
   destination: {x: 0, y: 0}
   towerAnim: {fileID: 8785090111982759689}
+  moveSpeed: 5
 --- !u!61 &-1182931598106819761
 BoxCollider2D:
   m_ObjectHideFlags: 0

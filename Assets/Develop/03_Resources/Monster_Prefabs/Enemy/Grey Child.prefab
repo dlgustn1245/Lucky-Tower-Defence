@@ -770,7 +770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
-  currentHP: 0
+  currHP: 0
+  key: Grey Child
+  enemyGrade: 0
+  gold: 10
 --- !u!70 &-3951134629658974486
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

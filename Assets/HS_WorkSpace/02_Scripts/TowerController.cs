@@ -90,13 +90,6 @@ public class TowerController : MonoBehaviour
         return go.GetComponent<TowerController>();
     }
 
-    public void UpgradeTower()
-    {
-        this.tower.attackSpeed -= 0.1f;
-        this.tower.damage += 1;
-        this.tower.price += 5;
-    }
-
     IEnumerator Attack()
     {
         while (true)

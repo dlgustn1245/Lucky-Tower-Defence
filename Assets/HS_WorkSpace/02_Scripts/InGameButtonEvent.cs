@@ -8,7 +8,7 @@ public class InGameButtonEvent : MonoBehaviour
     public UnityEngine.UI.Text pauseButtonText, speedUpButtonText;
     public ClickMoving info;
     public GameObject upgradePanel, towerInfo;
-    public ObjectPoolManager objectPoolManager;
+    public TowerObjectPoolManager objectPoolManager;
     
     string grade;
     bool isPaused;

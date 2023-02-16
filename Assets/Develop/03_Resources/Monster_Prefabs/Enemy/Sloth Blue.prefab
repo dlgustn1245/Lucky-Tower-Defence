@@ -864,8 +864,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 90
   currHP: 0
+  key: Sloth Blue
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!68 &5609170376365350071
 EdgeCollider2D:
   m_ObjectHideFlags: 0

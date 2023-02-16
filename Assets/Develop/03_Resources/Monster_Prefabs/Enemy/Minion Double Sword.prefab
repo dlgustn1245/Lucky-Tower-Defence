@@ -282,8 +282,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 115
   currHP: 0
+  key: Minion Double Sword
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &-1784024164914462378
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

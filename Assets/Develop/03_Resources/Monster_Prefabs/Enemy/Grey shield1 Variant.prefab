@@ -212,8 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 60
   currHP: 0
+  key: Grey shield1 Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!114 &4997096473473457274
 MonoBehaviour:
   m_ObjectHideFlags: 0

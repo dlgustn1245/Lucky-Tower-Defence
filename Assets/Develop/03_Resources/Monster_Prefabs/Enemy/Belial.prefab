@@ -669,8 +669,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 130
   currHP: 0
+  key: Belial
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &5210635264246289330
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

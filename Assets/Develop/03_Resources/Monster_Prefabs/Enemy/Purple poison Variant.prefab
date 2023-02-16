@@ -346,5 +346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 175
   currHP: 0
+  key: Purple poison Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10

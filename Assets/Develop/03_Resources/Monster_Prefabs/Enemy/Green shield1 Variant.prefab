@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126577676898868851, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
       propertyPath: m_Name
-      value: 'Green shield1 Variant '
+      value: Green shield1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9126577676898868851, guid: 9b29a38d13b634d6dbbed644a790dd11, type: 3}
       propertyPath: m_TagString
@@ -370,5 +370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 205
   currHP: 0
+  key: Green shield1 Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10

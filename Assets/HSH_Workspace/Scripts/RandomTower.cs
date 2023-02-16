@@ -4,7 +4,7 @@ using UnityEngine;
 public class RandomTower : MonoBehaviour
 {
     public List<TowerController> towers = new List<TowerController>();
-    public ObjectPoolManager objectPoolManager;
+    public TowerObjectPoolManager objectPoolManager;
     float total;
     int poolCnt;
     TowerController result;

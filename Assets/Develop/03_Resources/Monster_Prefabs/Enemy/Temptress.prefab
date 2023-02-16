@@ -476,8 +476,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 415
   currHP: 0
+  key: Temptress
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &3085837173847001222
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

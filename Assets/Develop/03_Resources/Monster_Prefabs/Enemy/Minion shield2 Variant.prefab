@@ -212,8 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 145
   currHP: 0
+  key: Minion shield2 Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!114 &6358843641073165702
 MonoBehaviour:
   m_ObjectHideFlags: 0

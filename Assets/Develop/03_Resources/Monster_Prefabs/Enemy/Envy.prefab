@@ -284,8 +284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 50
   currHP: 0
+  key: Envy
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &3954135187350416223
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
