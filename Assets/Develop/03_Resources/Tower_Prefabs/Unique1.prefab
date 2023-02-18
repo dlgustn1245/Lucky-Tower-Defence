@@ -12,6 +12,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -4556087360953339108, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: key
+      value: Unique01
+      objectReference: {fileID: 0}
+    - target: {fileID: -4556087360953339108, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: tower.grade
       value: 9
       objectReference: {fileID: 0}

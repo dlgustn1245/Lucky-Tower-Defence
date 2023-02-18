@@ -577,8 +577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 235
   currHP: 0
+  key: Lilith
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &3620498500050784300
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

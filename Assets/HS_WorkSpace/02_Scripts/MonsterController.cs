@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,8 +7,8 @@ public class MonsterController : MonoBehaviour
     [Header("Monster Stat")]
     public float maxHP;
     public float currHP;
+    public string key;
     public EnemyGrade enemyGrade;
-    public int gold;
     Animator anim;
 
     void Awake()
@@ -19,11 +20,19 @@ public class MonsterController : MonoBehaviour
         currHP = maxHP;
     }
 
-    void Update()
+    void OnDisable()
     {
+        this.gameObject.transform.position = new Vector3(0.0f, 3.5f, 0.0f);
     }
-    
-    public void TakeDamage(int dmg, GameObject tower)
+
+    public MonsterController Clone()
+    {
+        GameObject go = Instantiate(this.gameObject, MonsterObjectPoolManager.Instance.parent, true);
+        go.SetActive(false);
+        return go.GetComponent<MonsterController>();
+    }
+
+    public void TakeDamage(int dmg)
     {
         currHP -= dmg;
         if(currHP <= 0)
@@ -42,17 +51,16 @@ public class MonsterController : MonoBehaviour
             if (GameManager.Instance.killedMonster % 2 == 0)
             {
                 ++GameManager.Instance.gold;
-                //print("gold : " + tower.GetComponent<TowerController>().tower.gold);
             }
 
-            StartCoroutine(DestroyEnemy());
+            //StartCoroutine(DestroyEnemy());
         }
     }
 
-    IEnumerator DestroyEnemy()
+    public void DestroyEnemy()
     {
-        yield return new WaitForSeconds(0.5f);
-        //objectPooling.InactivatePoolItem(gameObject);
-        Destroy(this.gameObject);
+        print("Dead");
+        //yield return new WaitForSeconds(0.5f);
+        MonsterObjectPoolManager.Instance.ReturnMonster(this);
     }
 }

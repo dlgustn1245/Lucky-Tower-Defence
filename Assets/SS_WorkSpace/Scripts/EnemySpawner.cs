@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -17,22 +16,14 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveIndex = -1;
     private int spawnEnemyCount = 0;
 
-    void Awake()
-    {
-    }
-
     void Start()
-    {
-        StartWave();
-    }
-
-    void StartWave()
     {
         StartCoroutine(SpawnEnemy());
     }
-    
+
     private IEnumerator SpawnEnemy()
     {
+        yield return new WaitForSeconds(3.0f);
         while (GameManager.Instance.currWave < waves.Length)
         {
             GameManager.Instance.currWave++;
@@ -40,9 +31,9 @@ public class EnemySpawner : MonoBehaviour
             currentWaveIndex++;
             currentWave = waves[currentWaveIndex];
             spawnEnemyCount = 0;
-            while (spawnEnemyCount < currentWave.maxEnemyCount)
+            while (spawnEnemyCount < MonsterObjectPoolManager.Instance.poolObjectDataList[currentWaveIndex].maxObjectCount)
             {
-                GameObject clone = Instantiate(currentWave.enemyPrefab);
+                GameObject clone = MonsterObjectPoolManager.Instance.GetMonster(currentWave.key).gameObject;
                 EnemyMove enemyMove = clone.GetComponent<EnemyMove>();
                 
                 enemyMove.Setup(wayPoints);
@@ -76,8 +67,7 @@ public class EnemySpawner : MonoBehaviour
     
     private void SpawnEnemyHPSlider(GameObject enemy)
     {
-        GameObject sliderClone = Instantiate(enemyHPSliderPrefab);
-        sliderClone.transform.SetParent(canvasTransform);
+        GameObject sliderClone = Instantiate(enemyHPSliderPrefab, canvasTransform, true);
         sliderClone.transform.localScale = Vector3.one;
         sliderClone.GetComponent<SliderPositionAutoSetter>().Setup(enemy.transform);
         sliderClone.GetComponent<EnemyHPViewer>().Setup(enemy.GetComponent<MonsterController>());

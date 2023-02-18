@@ -284,8 +284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 315
   currHP: 0
+  key: Scream
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &3604329595730445995
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

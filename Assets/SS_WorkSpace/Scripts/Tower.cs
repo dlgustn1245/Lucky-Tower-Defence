@@ -1,4 +1,4 @@
-public enum TowerGrade { Common01 = 0, Common02, Common03, UnCommon01, UnCommon02, UnCommon03, Rare01, Rare02, Rare03, Unique01, Unique02, Unique03, Epic01, Epic02, Legendary }
+public enum TowerGrade { Common1 = 0, Common2, Common3, UnCommon1, UnCommon2, UnCommon3, Rare1, Rare2, Rare3, Unique1, Unique2, Unique3, Epic1, Epic2, Legendary }
 
 [System.Serializable]
 public class Tower

@@ -290,5 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 375
   currHP: 0
+  key: Double shield2 Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10

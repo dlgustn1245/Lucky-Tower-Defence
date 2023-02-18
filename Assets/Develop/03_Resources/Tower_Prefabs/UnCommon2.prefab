@@ -203,6 +203,7 @@ MonoBehaviour:
     attackSpeed: 1.75
     range: 0
     price: 10
+  key: UnCommon02
   boundary:
     xMin: -2.5
     xMax: 2.5
@@ -211,3 +212,4 @@ MonoBehaviour:
   isClicked: 0
   destination: {x: 0, y: 0}
   towerAnim: {fileID: 6026314723470000886}
+  moveSpeed: 5

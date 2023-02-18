@@ -3,14 +3,19 @@ using UnityEngine;
 
 //reference : https://rito15.github.io/posts/unity-object-pooling/
 
-[DisallowMultipleComponent]
-public class ObjectPoolManager : MonoBehaviour
+public class TowerObjectPoolManager : Singleton<TowerObjectPoolManager>
 {
-    public List<PoolObjectData> poolObjectDataList = new List<PoolObjectData>();
+    public List<TowerPoolObjectData> poolObjectDataList = new List<TowerPoolObjectData>();
+    public Transform parent, sampleParent;
     
+    public Dictionary<string, TowerController> sampleDict;
     public Dictionary<string, Stack<TowerController>> poolDict;
-    Dictionary<string, TowerController> sampleDict;
-    Dictionary<string, PoolObjectData> dataDict;
+    Dictionary<string, TowerPoolObjectData> dataDict;
+
+    new void Awake()
+    {
+        base.Awake();
+    }
     
     void Start()
     {
@@ -26,7 +31,7 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         sampleDict = new Dictionary<string, TowerController>(len);
-        dataDict = new Dictionary<string, PoolObjectData>(len);
+        dataDict = new Dictionary<string, TowerPoolObjectData>(len);
         poolDict = new Dictionary<string, Stack<TowerController>>(len);
 
         foreach (var data in poolObjectDataList)
@@ -35,19 +40,14 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
-    void Register(PoolObjectData data)
+    void Register(TowerPoolObjectData data)
     {
         if (poolDict.ContainsKey(data.key))
         {
             return;
         }
 
-        GameObject sample = Instantiate(data.prefab);
-        // if (!sample.TryGetComponent(out PoolObject po))
-        // {
-        //     po = sample.AddComponent<PoolObject>();
-        //     po.key = data.key;
-        // }
+        GameObject sample = Instantiate(data.prefab, sampleParent, true);
         TowerController towerObj = sample.GetComponent<TowerController>();
         sample.SetActive(false);
 
@@ -63,16 +63,15 @@ public class ObjectPoolManager : MonoBehaviour
         poolDict.Add(data.key, pool);
     }
 
-    public TowerController GetTower(string key)
+    public void GetTower(string key)
     {
         if (!poolDict.TryGetValue(key, out var pool))
         {
-            return null;
+            return;
         }
 
         TowerController tower = pool.Count > 0 ? pool.Pop() : sampleDict[key].Clone();
         tower.gameObject.SetActive(true);
-        return tower;
     }
 
     public void ReturnTower(TowerController po)

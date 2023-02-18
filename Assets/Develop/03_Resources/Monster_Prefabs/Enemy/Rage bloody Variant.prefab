@@ -274,8 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 335
   currHP: 0
+  key: Rage bloody Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!114 &1408133423925440811
 MonoBehaviour:
   m_ObjectHideFlags: 0

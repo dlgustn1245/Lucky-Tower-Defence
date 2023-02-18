@@ -868,5 +868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 7000
   currHP: 0
+  key: Glutton
   enemyGrade: 1
   gold: 50

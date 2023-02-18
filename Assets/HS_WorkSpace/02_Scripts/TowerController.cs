@@ -24,8 +24,6 @@ public class TowerController : MonoBehaviour
 
     bool runAnimTrigger;
 
-    float speed = 10.0f;
-
     void OnEnable()
     {
         StartCoroutine(Attack());
@@ -73,29 +71,49 @@ public class TowerController : MonoBehaviour
         return (position.x >= boundary.xMin && position.x <= boundary.xMax) && (position.y >= boundary.yMin && position.y <= boundary.yMax);
     }
 
-    void Attack(GameObject monster, GameObject instigator)
+    void Attack(GameObject monster)
     {
         if (!monster)
         {
             return;
         }
         towerAnim.SetTrigger("Attack");
-        monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
+        monster.GetComponent<MonsterController>().TakeDamage(tower.damage);
     }
 
     public TowerController Clone()
     {
-        GameObject go = Instantiate(this.gameObject);
+        GameObject go = Instantiate(this.gameObject, TowerObjectPoolManager.Instance.parent, true);
         go.SetActive(false);
         return go.GetComponent<TowerController>();
     }
 
-    public void UpgradeTower()
+    #region Upgrade
+    public void UpgradeCommon()
     {
-        this.tower.attackSpeed -= 0.1f;
-        this.tower.damage += 1;
-        this.tower.price += 5;
+        print("Common Upgrade");
     }
+    public void UpgradeUnCommon()
+    {
+        print("UnCommon Upgrade");
+    }
+    public void UpgradeRare()
+    {
+        print("Rare Upgrade");
+    }
+    public void UpgradeUnique()
+    {
+        print("Unique Upgrade");
+    }
+    public void UpgradeEpic()
+    {
+        print("Epic Upgrade");
+    }
+    public void UpgradeLegendary()
+    {
+        print("Legendary Upgrade");
+    }
+    #endregion
 
     IEnumerator Attack()
     {
@@ -111,7 +129,7 @@ public class TowerController : MonoBehaviour
                         break;
                     }
                 }
-                Attack(targetMonster, this.gameObject);
+                Attack(targetMonster);
             }
             yield return new WaitForSeconds(tower.attackSpeed);
         }

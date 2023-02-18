@@ -377,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 8000
   currHP: 0
+  key: Giant Warth
   enemyGrade: 1
   gold: 50
 --- !u!1 &4087970576058030144

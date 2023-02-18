@@ -211,6 +211,7 @@ MonoBehaviour:
     attackSpeed: 0.5
     range: 7
     price: 10
+  key: Epic02
   boundary:
     xMin: -2.5
     xMax: 2.5
@@ -219,3 +220,4 @@ MonoBehaviour:
   isClicked: 0
   destination: {x: 0, y: 0}
   towerAnim: {fileID: 5349330658361867005}
+  moveSpeed: 5

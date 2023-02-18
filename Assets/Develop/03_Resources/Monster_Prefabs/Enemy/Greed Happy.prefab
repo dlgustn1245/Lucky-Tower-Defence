@@ -281,8 +281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 190
   currHP: 0
+  key: Greed Happy
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!68 &7068209131813221450
 EdgeCollider2D:
   m_ObjectHideFlags: 0

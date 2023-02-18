@@ -196,8 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 80
   currHP: 0
+  key: Grey poison Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!114 &-5091972926464638014
 MonoBehaviour:
   m_ObjectHideFlags: 0

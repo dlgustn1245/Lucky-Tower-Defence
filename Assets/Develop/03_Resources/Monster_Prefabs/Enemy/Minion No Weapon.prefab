@@ -476,8 +476,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 20
   currHP: 0
+  key: Minion No Weapon
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!70 &5583515782076746525
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

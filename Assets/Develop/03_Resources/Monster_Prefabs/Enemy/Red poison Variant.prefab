@@ -320,8 +320,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 255
   currHP: 0
+  key: Red poison Variant
   enemyGrade: 0
-  gold: 0
+  gold: 10
 --- !u!114 &7270466321865877106
 MonoBehaviour:
   m_ObjectHideFlags: 0
