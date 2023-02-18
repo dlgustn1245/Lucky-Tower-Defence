@@ -53,13 +53,14 @@ public class MonsterController : MonoBehaviour
                 ++GameManager.Instance.gold;
             }
 
-            StartCoroutine(DestroyEnemy());
+            //StartCoroutine(DestroyEnemy());
         }
     }
 
-    IEnumerator DestroyEnemy()
+    public void DestroyEnemy()
     {
-        yield return new WaitForSeconds(0.5f);
+        print("Dead");
+        //yield return new WaitForSeconds(0.5f);
         MonsterObjectPoolManager.Instance.ReturnMonster(this);
     }
 }
