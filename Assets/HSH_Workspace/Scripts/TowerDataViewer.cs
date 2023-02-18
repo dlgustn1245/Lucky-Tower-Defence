@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using TMPro.SpriteAssetUtilities;
 
 public class TowerDataViewer : MonoBehaviour
 {
@@ -13,15 +9,13 @@ public class TowerDataViewer : MonoBehaviour
     public Text atkSpeedText;
 
     Tower currentTower;
-    TowerData currentTower_data;
-
-    // Start is called before the first frame update
+    TowerData currTower;
+    
     void Start()
     {
         OffPanel();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -30,10 +24,10 @@ public class TowerDataViewer : MonoBehaviour
         }
     }
 
-    public void OnPanel(Transform cTower)
+    public void OnPanel(Transform tower)
     {
         //출력해야하는 타워 정보를 받아와서 저장
-        currentTower = cTower.GetComponent<TowerController>().tower;
+        currentTower = tower.GetComponent<TowerController>().tower;
         //타워 정보 Panel On
         gameObject.SetActive(true);
         //타워 정보를 갱신
@@ -88,7 +82,7 @@ public class TowerDataViewer : MonoBehaviour
                 grade = "Legendary";
                 break;
         }
-        gradeText.text = "Grade: " + grade;
+        gradeText.text = "Grade : " + grade;
         dmgText.text = "AtkDamage : " + currentTower.damage;
         atkSpeedText.text = "AtkSpeed : " + currentTower.attackSpeed;
     }

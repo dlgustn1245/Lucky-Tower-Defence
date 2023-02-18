@@ -24,8 +24,6 @@ public class TowerController : MonoBehaviour
 
     bool runAnimTrigger;
 
-    float speed = 10.0f;
-
     void OnEnable()
     {
         StartCoroutine(Attack());
@@ -73,14 +71,14 @@ public class TowerController : MonoBehaviour
         return (position.x >= boundary.xMin && position.x <= boundary.xMax) && (position.y >= boundary.yMin && position.y <= boundary.yMax);
     }
 
-    void Attack(GameObject monster, GameObject instigator)
+    void Attack(GameObject monster)
     {
         if (!monster)
         {
             return;
         }
         towerAnim.SetTrigger("Attack");
-        monster.GetComponent<MonsterController>().TakeDamage(tower.damage, instigator);
+        monster.GetComponent<MonsterController>().TakeDamage(tower.damage);
     }
 
     public TowerController Clone()
@@ -131,7 +129,7 @@ public class TowerController : MonoBehaviour
                         break;
                     }
                 }
-                Attack(targetMonster, this.gameObject);
+                Attack(targetMonster);
             }
             yield return new WaitForSeconds(tower.attackSpeed);
         }

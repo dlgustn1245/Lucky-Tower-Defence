@@ -18,11 +18,6 @@ public class TowerObjectPoolManager : MonoBehaviour
 
     void Init()
     {
-        for (int i = 0; i < poolObjectDataList.Count; i++)
-        {
-            poolObjectDataList[i].key = poolObjectDataList[i].prefab.name;
-        }
-        
         int len = poolObjectDataList.Count;
         if (len == 0)
         {

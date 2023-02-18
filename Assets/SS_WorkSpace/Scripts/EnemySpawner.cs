@@ -20,10 +20,6 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < waves.Length; i++)
-        {
-            waves[i].key = waves[i].enemyPrefab.name;
-        }
         StartCoroutine(SpawnEnemy());
     }
 

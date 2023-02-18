@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterObjectPoolManager : MonoBehaviour
 {
     public List<MonsterPoolObjectData> poolObjectDataList = new List<MonsterPoolObjectData>();
-    
+
     Dictionary<string, Stack<MonsterController>> poolDict;
     Dictionary<string, MonsterPoolObjectData> dataDict;
 
@@ -16,11 +16,6 @@ public class MonsterObjectPoolManager : MonoBehaviour
 
     void Init()
     {
-        for (int i = 0; i < poolObjectDataList.Count; i++)
-        {
-            poolObjectDataList[i].key = poolObjectDataList[i].prefab.name;
-        }
-        
         int len = poolObjectDataList.Count;
         if (len == 0)
         {

@@ -34,7 +34,7 @@ public class MonsterController : MonoBehaviour
         return go.GetComponent<MonsterController>();
     }
 
-    public void TakeDamage(int dmg, GameObject tower)
+    public void TakeDamage(int dmg)
     {
         currHP -= dmg;
         if(currHP <= 0)
@@ -53,7 +53,6 @@ public class MonsterController : MonoBehaviour
             if (GameManager.Instance.killedMonster % 2 == 0)
             {
                 ++GameManager.Instance.gold;
-                //print("gold : " + tower.GetComponent<TowerController>().tower.gold);
             }
 
             StartCoroutine(DestroyEnemy());
@@ -63,8 +62,6 @@ public class MonsterController : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        //objectPooling.InactivatePoolItem(gameObject);
-        //Destroy(this.gameObject);
         objectPoolManager.ReturnMonster(this);
     }
 }
