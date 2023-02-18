@@ -83,7 +83,7 @@ public class TowerController : MonoBehaviour
 
     public TowerController Clone()
     {
-        GameObject go = Instantiate(this.gameObject);
+        GameObject go = Instantiate(this.gameObject, TowerObjectPoolManager.Instance.parent, true);
         go.SetActive(false);
         return go.GetComponent<TowerController>();
     }

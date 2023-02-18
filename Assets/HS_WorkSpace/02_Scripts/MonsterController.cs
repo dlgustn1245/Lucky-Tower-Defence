@@ -11,8 +11,6 @@ public class MonsterController : MonoBehaviour
     public EnemyGrade enemyGrade;
     Animator anim;
 
-    public MonsterObjectPoolManager objectPoolManager;
-
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -29,7 +27,7 @@ public class MonsterController : MonoBehaviour
 
     public MonsterController Clone()
     {
-        GameObject go = Instantiate(this.gameObject);
+        GameObject go = Instantiate(this.gameObject, MonsterObjectPoolManager.Instance.parent, true);
         go.SetActive(false);
         return go.GetComponent<MonsterController>();
     }
@@ -62,6 +60,6 @@ public class MonsterController : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        objectPoolManager.ReturnMonster(this);
+        MonsterObjectPoolManager.Instance.ReturnMonster(this);
     }
 }

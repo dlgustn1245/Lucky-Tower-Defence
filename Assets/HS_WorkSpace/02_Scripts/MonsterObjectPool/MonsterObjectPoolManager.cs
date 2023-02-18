@@ -1,14 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterObjectPoolManager : MonoBehaviour
+public class MonsterObjectPoolManager : Singleton<MonsterObjectPoolManager>
 {
     public List<MonsterPoolObjectData> poolObjectDataList = new List<MonsterPoolObjectData>();
+    public Transform parent;
 
-    Dictionary<string, Stack<MonsterController>> poolDict;
+    Dictionary<string, Queue<MonsterController>> poolDict;
     Dictionary<string, MonsterPoolObjectData> dataDict;
 
+    new void Awake()
+    {
+        base.Awake();
+    }
+    
     void Start()
     {
         Init();
@@ -23,7 +28,7 @@ public class MonsterObjectPoolManager : MonoBehaviour
         }
         
         dataDict = new Dictionary<string, MonsterPoolObjectData>(len);
-        poolDict = new Dictionary<string, Stack<MonsterController>>(len);
+        poolDict = new Dictionary<string, Queue<MonsterController>>(len);
 
         foreach (var data in poolObjectDataList)
         {
@@ -40,11 +45,11 @@ public class MonsterObjectPoolManager : MonoBehaviour
         
         MonsterController monsterObj = data.prefab.GetComponent<MonsterController>();
 
-        Stack<MonsterController> pool = new Stack<MonsterController>(data.maxObjectCount);
+        Queue<MonsterController> pool = new Queue<MonsterController>(data.maxObjectCount);
         for (int i = 0; i < data.maxObjectCount; i++)
         {
             MonsterController clone = monsterObj.Clone();
-            pool.Push(clone);
+            pool.Enqueue(clone);
         }
         
         dataDict.Add(data.key, data);
@@ -58,7 +63,7 @@ public class MonsterObjectPoolManager : MonoBehaviour
             return null;
         }
 
-        var monster = pool.Pop();
+        var monster = pool.Dequeue();
         monster.gameObject.SetActive(true);
         return monster;
     }
@@ -74,7 +79,7 @@ public class MonsterObjectPoolManager : MonoBehaviour
 
         if (pool.Count < dataDict[key].maxObjectCount)
         {
-            pool.Push(monster);
+            pool.Enqueue(monster);
             monster.gameObject.SetActive(false);
         }
         else

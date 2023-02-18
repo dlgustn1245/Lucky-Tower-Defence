@@ -9,8 +9,7 @@ public class InGameButtonEvent : MonoBehaviour
     public UnityEngine.UI.Text pauseButtonText, speedUpButtonText;
     public ClickMoving info;
     public GameObject upgradePanel, towerInfo;
-    public TowerObjectPoolManager objectPoolManager;
-    
+
     string grade;
     bool isPaused;
     bool isSpeedUpActivated;
@@ -101,8 +100,8 @@ public class InGameButtonEvent : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             towerGrade = Enum.GetName(typeof(TowerGrade), i);
-            objectPoolManager.sampleDict[towerGrade].UpgradeCommon();
-            towerStack = objectPoolManager.poolDict[towerGrade];
+            TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeCommon();
+            towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
             foreach (var tower in towerStack)
             {
                 tower.UpgradeCommon();
@@ -115,8 +114,8 @@ public class InGameButtonEvent : MonoBehaviour
         for (int i = 3; i < 6; i++)
         {
             towerGrade = Enum.GetName(typeof(TowerGrade), i);
-            objectPoolManager.sampleDict[towerGrade].UpgradeUnCommon();
-            towerStack = objectPoolManager.poolDict[towerGrade];
+            TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeUnCommon();
+            towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
             foreach (var tower in towerStack)
             {
                 tower.UpgradeUnCommon();
@@ -129,8 +128,8 @@ public class InGameButtonEvent : MonoBehaviour
         for (int i = 6; i < 9; i++)
         {
             towerGrade = Enum.GetName(typeof(TowerGrade), i);
-            objectPoolManager.sampleDict[towerGrade].UpgradeRare();
-            towerStack = objectPoolManager.poolDict[towerGrade];
+            TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeRare();
+            towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
             foreach (var tower in towerStack)
             {
                 tower.UpgradeRare();
@@ -143,8 +142,8 @@ public class InGameButtonEvent : MonoBehaviour
         for (int i = 9; i < 12; i++)
         {
             towerGrade = Enum.GetName(typeof(TowerGrade), i);
-            objectPoolManager.sampleDict[towerGrade].UpgradeUnique();
-            towerStack = objectPoolManager.poolDict[towerGrade];
+            TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeUnique();
+            towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
             foreach (var tower in towerStack)
             {
                 tower.UpgradeUnique();
@@ -157,8 +156,8 @@ public class InGameButtonEvent : MonoBehaviour
         for (int i = 12; i < 14; i++)
         {
             towerGrade = Enum.GetName(typeof(TowerGrade), i);
-            objectPoolManager.sampleDict[towerGrade].UpgradeEpic();
-            towerStack = objectPoolManager.poolDict[towerGrade];
+            TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeEpic();
+            towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
             foreach (var tower in towerStack)
             {
                 tower.UpgradeEpic();
@@ -168,9 +167,9 @@ public class InGameButtonEvent : MonoBehaviour
 
     public void UpgradeLegendary()
     {
-        towerGrade = Enum.GetName(typeof(TowerGrade), 14);
-        objectPoolManager.sampleDict[towerGrade].UpgradeLegendary();
-        towerStack = objectPoolManager.poolDict[towerGrade];
+        towerGrade = Enum.GetName(typeof(TowerGrade), (int)TowerGrade.Legendary);
+        TowerObjectPoolManager.Instance.sampleDict[towerGrade].UpgradeLegendary();
+        towerStack = TowerObjectPoolManager.Instance.poolDict[towerGrade];
         foreach (var tower in towerStack)
         {
             tower.UpgradeLegendary();
@@ -184,6 +183,6 @@ public class InGameButtonEvent : MonoBehaviour
         GameManager.Instance.gold += currentTower.GetComponent<TowerController>().tower.price;
         GameManager.Instance.SetText();
         towerInfo.SetActive(false);
-        objectPoolManager.ReturnTower(currentTower);
+        TowerObjectPoolManager.Instance.ReturnTower(currentTower);
     }
 }

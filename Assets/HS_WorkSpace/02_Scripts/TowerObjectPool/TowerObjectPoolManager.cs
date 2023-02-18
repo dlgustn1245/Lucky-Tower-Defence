@@ -3,13 +3,19 @@ using UnityEngine;
 
 //reference : https://rito15.github.io/posts/unity-object-pooling/
 
-public class TowerObjectPoolManager : MonoBehaviour
+public class TowerObjectPoolManager : Singleton<TowerObjectPoolManager>
 {
     public List<TowerPoolObjectData> poolObjectDataList = new List<TowerPoolObjectData>();
+    public Transform parent, sampleParent;
     
     public Dictionary<string, TowerController> sampleDict;
     public Dictionary<string, Stack<TowerController>> poolDict;
     Dictionary<string, TowerPoolObjectData> dataDict;
+
+    new void Awake()
+    {
+        base.Awake();
+    }
     
     void Start()
     {
@@ -41,7 +47,7 @@ public class TowerObjectPoolManager : MonoBehaviour
             return;
         }
 
-        GameObject sample = Instantiate(data.prefab);
+        GameObject sample = Instantiate(data.prefab, sampleParent, true);
         TowerController towerObj = sample.GetComponent<TowerController>();
         sample.SetActive(false);
 
@@ -57,16 +63,15 @@ public class TowerObjectPoolManager : MonoBehaviour
         poolDict.Add(data.key, pool);
     }
 
-    public TowerController GetTower(string key)
+    public void GetTower(string key)
     {
         if (!poolDict.TryGetValue(key, out var pool))
         {
-            return null;
+            return;
         }
 
         TowerController tower = pool.Count > 0 ? pool.Pop() : sampleDict[key].Clone();
         tower.gameObject.SetActive(true);
-        return tower;
     }
 
     public void ReturnTower(TowerController po)
