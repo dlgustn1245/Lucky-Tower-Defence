@@ -38,7 +38,7 @@ public class TowerController : MonoBehaviour
     {
         if (isClicked)
         {
-            runAnimTrigger = true;
+            //runAnimTrigger = true;
             this.transform.position = Vector2.MoveTowards(this.transform.position, destination, Time.deltaTime * moveSpeed);
             if (Vector2.Distance(this.transform.position, destination) < 0.1f)
             {
