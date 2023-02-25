@@ -341,33 +341,9 @@ CompositeCollider2D:
   m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 15189391}
-    m_ColliderPaths:
-    - - X: 60000000
-        Y: 60000000
-      - X: -60000000
-        Y: 60000000
-      - X: -60000000
-        Y: -60000000
-      - X: 60000000
-        Y: -60000000
-    - - X: -50000000
-        Y: -50000000
-      - X: -50000000
-        Y: 50000000
-      - X: 50000000
-        Y: 50000000
-      - X: 50000000
-        Y: -50000000
+    m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 5.999971, y: -6}
-      - {x: 5.999971, y: 6}
-      - {x: -6, y: 5.999971}
-      - {x: -5.999971, y: -6}
-    - - {x: 5, y: -4.9999704}
-      - {x: -5, y: -4.9999704}
-      - {x: -4.9999704, y: 5}
-      - {x: 5, y: 4.9999704}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!19719996 &15189391
@@ -16076,7 +16052,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -26815,7 +26791,10 @@ MonoBehaviour:
   - key: Heresy
     prefab: {fileID: 5122605360274088336, guid: 7bd64248009aebd46a304a11e7e57bd0, type: 3}
     maxObjectCount: 2
-  parent: {fileID: 809515664}
+  monsterParent: {fileID: 809515664}
+  hpBarCanvas: {fileID: 1519418236}
+  hpBar: {fileID: 8927362872107106083, guid: 590dacc74c090e640976bf45c1708ca6, type: 3}
+  hpBarMaxCount: 100
 --- !u!4 &1807793021
 Transform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,12 @@ public class SliderPositionAutoSetter : MonoBehaviour
     private Vector3 distance = Vector3.down * 20.0f;
     private Transform targetTranform;
     private RectTransform rectTransform;
+    Camera cam;
+
+    void Start()
+    {
+        cam = Camera.main;
+    }
 
     public void Setup(Transform target)
     {
@@ -24,7 +31,7 @@ public class SliderPositionAutoSetter : MonoBehaviour
             return;
         }
         // 월드 좌표계 기준으로 화면에서의 좌표 값을 구함
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(targetTranform.position);
+        Vector3 screenPosition = cam.WorldToScreenPoint(targetTranform.position);
         rectTransform.position = screenPosition + distance;
     }
 }

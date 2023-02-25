@@ -7,8 +7,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] wayPoints;  // 스테이지 이동 경로
     [SerializeField]
     private GameObject enemyHPSliderPrefab;
-    [SerializeField]
-    private Transform canvasTransform;
+    public Transform canvasTransform;
     
     [SerializeField]
     private Wave[] waves;
@@ -21,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    private IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(3.0f);
         while (GameManager.Instance.currWave < waves.Length)
@@ -33,12 +32,13 @@ public class EnemySpawner : MonoBehaviour
             spawnEnemyCount = 0;
             while (spawnEnemyCount < MonsterObjectPoolManager.Instance.poolObjectDataList[currentWaveIndex].maxObjectCount)
             {
-                GameObject clone = MonsterObjectPoolManager.Instance.GetMonster(currentWave.key).gameObject;
-                EnemyMove enemyMove = clone.GetComponent<EnemyMove>();
+                var monster = MonsterObjectPoolManager.Instance.GetMonster(currentWave.key).gameObject;
+                GameManager.Instance.monsterList.Add(monster, false);
+                var enemyMove = monster.GetComponent<EnemyMove>();
                 
                 enemyMove.Setup(wayPoints);
 
-                SpawnEnemyHPSlider(clone);
+                BindMonsterHpSlider(monster);
 
                 spawnEnemyCount++;
                 ++GameManager.Instance.currMonsterCount;
@@ -65,11 +65,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
     
-    private void SpawnEnemyHPSlider(GameObject enemy)
+    void BindMonsterHpSlider(GameObject enemy)
     {
-        GameObject sliderClone = Instantiate(enemyHPSliderPrefab, canvasTransform, true);
-        sliderClone.transform.localScale = Vector3.one;
-        sliderClone.GetComponent<SliderPositionAutoSetter>().Setup(enemy.transform);
-        sliderClone.GetComponent<EnemyHPViewer>().Setup(enemy.GetComponent<MonsterController>());
+        var hpBarClone = MonsterObjectPoolManager.Instance.GetHpBar();
+        hpBarClone.transform.localScale = Vector3.one;
+        hpBarClone.GetComponent<SliderPositionAutoSetter>().Setup(enemy.transform);
+        hpBarClone.GetComponent<EnemyHPViewer>().Setup(enemy.GetComponent<MonsterController>());
+        MonsterObjectPoolManager.Instance.monsterHpDic.Add(enemy.GetComponent<MonsterController>(), hpBarClone);
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class EnemyHPViewer : MonoBehaviour
 {
-    private MonsterController monsterController;
-    private Slider hpSlider;
+    MonsterController monsterController;
+    Slider hpSlider;
 
-    public void Setup(MonsterController monsterController)
+    public void Setup(MonsterController monster)
     {
-        this.monsterController = monsterController;
+        monsterController = monster;
         hpSlider = GetComponent<Slider>();
     }
 

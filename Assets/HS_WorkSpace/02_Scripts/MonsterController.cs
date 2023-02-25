@@ -9,7 +9,10 @@ public class MonsterController : MonoBehaviour
     public float currHP;
     public string key;
     public EnemyGrade enemyGrade;
+    Canvas canvas;
+    
     Animator anim;
+    RectTransform barTransform;
 
     void Awake()
     {
@@ -27,7 +30,7 @@ public class MonsterController : MonoBehaviour
 
     public MonsterController Clone()
     {
-        GameObject go = Instantiate(this.gameObject, MonsterObjectPoolManager.Instance.parent, true);
+        GameObject go = Instantiate(this.gameObject, MonsterObjectPoolManager.Instance.monsterParent, true);
         go.SetActive(false);
         return go.GetComponent<MonsterController>();
     }
@@ -42,7 +45,6 @@ public class MonsterController : MonoBehaviour
                 GameManager.Instance.gold += 10;
                 GameManager.Instance.NextStage();
             }
-            //print("Monster Dead");
             anim.SetTrigger("Die");
             GameManager.Instance.monsterList.Remove(this.gameObject);
             --GameManager.Instance.currMonsterCount;
@@ -52,15 +54,12 @@ public class MonsterController : MonoBehaviour
             {
                 ++GameManager.Instance.gold;
             }
-
-            //StartCoroutine(DestroyEnemy());
         }
     }
 
     public void DestroyEnemy()
     {
-        print("Dead");
-        //yield return new WaitForSeconds(0.5f);
         MonsterObjectPoolManager.Instance.ReturnMonster(this);
+        MonsterObjectPoolManager.Instance.ReturnHpBar(this);
     }
 }
