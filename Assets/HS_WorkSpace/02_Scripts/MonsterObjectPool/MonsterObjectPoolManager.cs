@@ -4,10 +4,13 @@ using UnityEngine;
 public class MonsterObjectPoolManager : Singleton<MonsterObjectPoolManager>
 {
     public List<MonsterPoolObjectData> poolObjectDataList = new List<MonsterPoolObjectData>();
-    public Transform parent;
+    public Transform monsterParent, hpBarCanvas;
+    public GameObject hpBar;
+    public Dictionary<MonsterController, GameObject> monsterHpDic;
 
     Dictionary<string, Queue<MonsterController>> poolDict;
     Dictionary<string, MonsterPoolObjectData> dataDict;
+    Queue<GameObject> hpBarQueue;
 
     new void Awake()
     {
@@ -28,11 +31,25 @@ public class MonsterObjectPoolManager : Singleton<MonsterObjectPoolManager>
         }
         
         dataDict = new Dictionary<string, MonsterPoolObjectData>(len);
+        monsterHpDic = new Dictionary<MonsterController, GameObject>();
         poolDict = new Dictionary<string, Queue<MonsterController>>(len);
+
+        hpBarQueue = new Queue<GameObject>(GameManager.Instance.monsterCountLimit);
+        CreateHpBarClone(ref hpBarQueue);
 
         foreach (var data in poolObjectDataList)
         {
             Register(data);
+        }
+    }
+
+    void CreateHpBarClone(ref Queue<GameObject> queue)
+    {
+        for (int i = 0; i < GameManager.Instance.monsterCountLimit; i++)
+        {
+            var hpBarClone = Instantiate(hpBar, hpBarCanvas, true);
+            hpBarClone.SetActive(false);
+            queue.Enqueue(hpBarClone);
         }
     }
     
@@ -67,6 +84,13 @@ public class MonsterObjectPoolManager : Singleton<MonsterObjectPoolManager>
         monster.gameObject.SetActive(true);
         return monster;
     }
+
+    public GameObject GetHpBar()
+    {
+        var bar = hpBarQueue.Dequeue();
+        bar.SetActive(true);
+        return bar;
+    }
     
     public void ReturnMonster(MonsterController monster)
     {
@@ -86,5 +110,17 @@ public class MonsterObjectPoolManager : Singleton<MonsterObjectPoolManager>
         {
             Destroy(monster.gameObject);
         }
+    }
+
+    public void ReturnHpBar(MonsterController monster)
+    {
+        if (!monsterHpDic.TryGetValue(monster, out var hpBarObj))
+        {
+            return;
+        }
+
+        monsterHpDic.Remove(monster);
+        hpBarQueue.Enqueue(hpBarObj);
+        hpBarObj.SetActive(false);
     }
 }

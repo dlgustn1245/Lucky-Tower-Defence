@@ -28,6 +28,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
         instance = GetComponent<T>();
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 }
