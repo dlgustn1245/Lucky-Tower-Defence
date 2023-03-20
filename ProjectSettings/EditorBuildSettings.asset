@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Develop/01_Scenes/GameOverScene.unity
     guid: 02df0352775939f45815891b578281b0
+  - enabled: 1
+    path: Assets/HSH_Workspace/N_Scenes/StartScene.unity
+    guid: 9b0c1f658eb4e6c41a407aaabea7a9e3
+  - enabled: 1
+    path: Assets/HSH_Workspace/N_Scenes/Step1_New.unity
+    guid: ffd123687bbd15444a0f6970359e493f
+  - enabled: 1
+    path: Assets/HSH_Workspace/N_Scenes/ExitScene.unity
+    guid: 191ed3abdfdc93c41aedf711f8685bc6
   m_configObjects: {}
