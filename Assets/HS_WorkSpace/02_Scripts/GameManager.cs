@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetText();
-        UpdateMaps(0);
+        //UpdateMaps(0);
     }
     
     void Update()
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateMaps(int idx)
+    public void UpdateMaps(int idx)
     {
         for (int i = 0; i < maps.Length; i++)
         {

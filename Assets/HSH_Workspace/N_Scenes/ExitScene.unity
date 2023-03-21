@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 62323264}
   - component: {fileID: 62323263}
   m_Layer: 0
-  m_Name: GameOver
+  m_Name: TextSetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

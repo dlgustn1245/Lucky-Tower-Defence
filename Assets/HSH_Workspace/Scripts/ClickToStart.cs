@@ -1,15 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ClickToStart : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject stepScene;
-    [SerializeField]
     public GameObject basicPanel;
-    [SerializeField]
     public GameObject startScene;
 
     // Start is called before the first frame update
@@ -24,7 +17,7 @@ public class ClickToStart : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            stepScene.SetActive(true);
+            GameManager.Instance.UpdateMaps(0);
             basicPanel.SetActive(true);
             startScene.SetActive(false);
         }

@@ -4118,7 +4118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111386639}
   m_Layer: 5
-  m_Name: basicPanel
+  m_Name: BasicPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
