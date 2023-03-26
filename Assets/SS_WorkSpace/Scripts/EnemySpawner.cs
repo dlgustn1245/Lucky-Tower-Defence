@@ -3,17 +3,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private Transform[] wayPoints;  // ½ºÅ×ÀÌÁö ÀÌµ¿ °æ·Î
-    [SerializeField]
-    private GameObject enemyHPSliderPrefab;
-    public Transform canvasTransform;
-    
-    [SerializeField]
-    private Wave[] waves;
-    private Wave currentWave;
-    private int currentWaveIndex = -1;
-    private int spawnEnemyCount = 0;
+    public Transform[] wayPoints;  // ìŠ¤í…Œì´ì§€ ì´ë™ ê²½ë¡œ
+
+    public Wave[] waves;
+    Wave currWave;
+    int currWaveIndex = -1;
+    int spawnEnemyCount = 0;
+
+    Coroutine currCoroutine;
 
     void Start()
     {
@@ -22,17 +19,22 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitUntil(() => GameManager.Instance.gameStart);
         while (GameManager.Instance.currWave < waves.Length)
         {
             GameManager.Instance.currWave++;
             GameManager.Instance.SetText();
-            currentWaveIndex++;
-            currentWave = waves[currentWaveIndex];
+            currWaveIndex++;
+            currWave = waves[currWaveIndex];
             spawnEnemyCount = 0;
-            while (spawnEnemyCount < MonsterObjectPoolManager.Instance.poolObjectDataList[currentWaveIndex].maxObjectCount)
+            if (currCoroutine != null)
             {
-                var monster = MonsterObjectPoolManager.Instance.GetMonster(currentWave.key).gameObject;
+                StopCoroutine(currCoroutine);
+            }
+            StartStageTimer();
+            while (spawnEnemyCount < MonsterObjectPoolManager.Instance.poolObjectDataList[currWaveIndex].maxObjectCount)
+            {
+                var monster = MonsterObjectPoolManager.Instance.GetMonster(currWave.key).gameObject;
                 GameManager.Instance.monsterList.Add(monster, false);
                 var enemyMove = monster.GetComponent<EnemyMove>();
                 
@@ -45,23 +47,35 @@ public class EnemySpawner : MonoBehaviour
                 GameManager.Instance.SetText();
                 if (GameManager.Instance.currMonsterCount >= GameManager.Instance.monsterCountLimit)
                 {
-                    GameManager.Instance.gameOver = true;
+                    GameManager.Instance.LoadGameOverScene();
                     StopAllCoroutines();
                 }
 
-                if (currentWave.enemyGrade == EnemyGrade.Low)
+                if (currWave.enemyGrade == EnemyGrade.Low)
                 {
-                    yield return new WaitForSeconds(currentWave.spawnTime);
+                    yield return new WaitForSeconds(currWave.spawnTime);
                 }
-                else if (currentWave.enemyGrade == EnemyGrade.Low && spawnEnemyCount == currentWave.maxEnemyCount)
+                else if (currWave.enemyGrade == EnemyGrade.Low && spawnEnemyCount == currWave.maxEnemyCount)
                 {
                     yield return new WaitForSeconds(10f);
                 }
-                else if (currentWave.enemyGrade == EnemyGrade.Boss)
+                else if (currWave.enemyGrade == EnemyGrade.Boss)
                 {
                     yield return new WaitForSeconds(90f);
                 }
             }
+        }
+    }
+
+    void StartStageTimer()
+    {
+        if (currWave.enemyGrade == EnemyGrade.Low)
+        {
+            currCoroutine = StartCoroutine(GameManager.Instance.StageTimer(currWave.spawnTime * currWave.maxEnemyCount + 10.0f));
+        }
+        else if (currWave.enemyGrade == EnemyGrade.Boss)
+        {
+            currCoroutine = StartCoroutine(GameManager.Instance.StageTimer(90.0f));
         }
     }
     
