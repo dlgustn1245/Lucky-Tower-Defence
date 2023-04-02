@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Dictionary<GameObject, bool> monsterList = new Dictionary<GameObject, bool>();
+    public List<GameObject> monsterList = new List<GameObject>();
     public Text timer, monsterCount, round, goldText;
     public int currMonsterCount;
     public int currWave;

@@ -2,16 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[Serializable]
-public class Boundary
-{
-    public float xMin;
-    public float xMax;
-    public float yMin;
-    public float yMax;
-}
-
-public class TowerController : MonoBehaviour
+public class TowerController_Test : MonoBehaviour
 {
     GameObject targetMonster;
 
@@ -26,7 +17,7 @@ public class TowerController : MonoBehaviour
 
     void OnEnable()
     {
-        //StartCoroutine(Attack());
+        StartCoroutine(Attack());
     }
 
     void OnDisable()
@@ -73,7 +64,7 @@ public class TowerController : MonoBehaviour
 
     void Attack(GameObject monster)
     {
-        if (!monster)
+        if (monster is null)
         {
             return;
         }
@@ -115,40 +106,36 @@ public class TowerController : MonoBehaviour
     }
     #endregion
 
-    // IEnumerator Attack()
-    // {
-    //     while (true)
-    //     {
-    //         if (GameManager.Instance.monsterList.Count > 0)
-    //         {
-    //             foreach (var monster in GameManager.Instance.monsterList)
-    //             {
-    //                 if (monster.Value) //bool
-    //                 {
-    //                     targetMonster = monster.Key;
-    //                     break;
-    //                 }
-    //             }
-    //             Attack(targetMonster);
-    //         }
-    //         yield return new WaitForSeconds(tower.attackSpeed);
-    //     }
-    // }
-    //
-    // void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Monster"))
-    //     {
-    //         GameManager.Instance.monsterList[collision.gameObject] = true;
-    //     }
-    // }
-    //
-    // void OnTriggerExit2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Monster"))
-    //     {
-    //         //print("Exit Enemy");
-    //         GameManager.Instance.monsterList[collision.gameObject] = false;
-    //     }
-    // }
+    IEnumerator Attack()
+    {
+        while (true)
+        {
+            // if (GameManager.Instance.monsterList.Count > 0)
+            // {
+            //     foreach (var monster in GameManager.Instance.monsterList)
+            //     {
+            //         if (monster.Value) //bool
+            //         {
+            //             targetMonster = monster.Key;
+            //             break;
+            //         }
+            //     }
+            //     Attack(targetMonster);
+            // }
+
+            float minDistance = Mathf.Infinity;
+            for (int i = 0; i < GameManager.Instance.monsterList.Count; i++)
+            {
+                float distance = Vector2.Distance(GameManager.Instance.monsterList[i].transform.position, this.transform.position);
+                print(distance);
+                if (distance <= tower.range && distance <= minDistance)
+                {
+                    minDistance = distance;
+                    targetMonster = GameManager.Instance.monsterList[i];
+                }
+            }
+            Attack(targetMonster);
+            yield return new WaitForSeconds(tower.attackSpeed);
+        }
+    }
 }

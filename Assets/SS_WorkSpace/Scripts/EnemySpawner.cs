@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
             while (spawnEnemyCount < MonsterObjectPoolManager.Instance.poolObjectDataList[currWaveIndex].maxObjectCount)
             {
                 var monster = MonsterObjectPoolManager.Instance.GetMonster(currWave.key).gameObject;
-                GameManager.Instance.monsterList.Add(monster, false);
+                GameManager.Instance.monsterList.Add(monster);
                 var enemyMove = monster.GetComponent<EnemyMove>();
                 
                 enemyMove.Setup(wayPoints);

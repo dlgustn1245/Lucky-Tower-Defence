@@ -7,7 +7,7 @@ public class ClickMoving : MonoBehaviour
     public Camera cam;
     
     //클릭된 오브젝트
-    public TowerController target;
+    public TowerController_Test target;
 
     bool selected;
 
@@ -40,7 +40,7 @@ public class ClickMoving : MonoBehaviour
 
 		if (hit.collider && hit.collider.gameObject.CompareTag("Tower"))
 		{
-			target = hit.collider.gameObject.GetComponent<TowerController>();
+			target = hit.collider.gameObject.GetComponent<TowerController_Test>();
 			selected = true;
 		}
 
