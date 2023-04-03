@@ -1,59 +1,39 @@
+using System;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    static GameManager instance = null;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (!instance)
-            {
-                return null;
-            }
-
-            return instance;
-        } 
-    }
-    
-    public Dictionary<GameObject, bool> monsterList = new Dictionary<GameObject, bool>();
+    public List<GameObject> monsterList = new List<GameObject>();
     public Text timer, monsterCount, round, goldText;
     public int currMonsterCount;
-    public int currStage;
     public int currWave;
     public int killedMonster;
     public GameObject menuPanel;
     public GameObject[] maps;
 
-    public bool gameClear = false;
-    public bool gameOver = false;
-
     public int gold;
 
     public int monsterCountLimit;
-    int roundToClear;
-    int maxStage;
+    public int maxStage;
 
-    void Awake()
+    public bool gameStart = false;
+
+    int currStage;
+    int roundToClear;
+
+    new void Awake()
     {
-        if (!instance)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        base.Awake();
     }
 
     void Start()
     {
         SetText();
-        //UpdateMaps(0);
+        StartCoroutine(InitialTimer());
     }
     
     void Update()
@@ -66,13 +46,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             NextStage();
-        }
-
-        if (gameClear || gameOver)
-        {
-            PlayerPrefs.SetInt("MonsterCount", killedMonster);
-            PlayerPrefs.SetInt("ClearRound", currWave - 1);
-            SceneManager.LoadScene("GameOverScene");
         }
     }
 
@@ -94,26 +67,44 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameClear = true;
-            PlayerPrefs.SetInt("MonsterCount", killedMonster);
-            PlayerPrefs.SetInt("ClearRound", currWave - 1);
-            SceneManager.LoadScene("GameOverScene");
+            LoadGameOverScene();
         }
     }
 
-    // IEnumerator RoundTimer()
-    // {
-    //     while (true)
-    //     {
-    //         for (int i = 10; i > 0; i--)
-    //         {
-    //             timer.text = i.ToString();
-    //             yield return new WaitForSeconds(1.0f);
-    //         }
-    //         ++currRound;
-    //         round.text = currRound.ToString();
-    //     }
-    // }
+    public void LoadGameOverScene()
+    {
+        PlayerPrefs.SetInt("MonsterCount", killedMonster);
+        PlayerPrefs.SetInt("ClearRound", currWave - 1);
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+    IEnumerator InitialTimer()
+    {
+        var delay = new WaitForSeconds(1.0f);
+        for (int i = 10; i > 0; i--)
+        {
+            var min = Mathf.FloorToInt(i / 60);
+            var sec = Mathf.FloorToInt(i % 60);
+            
+            timer.text = string.Format("{0:00}:{1:00}", min, sec);
+            yield return delay;
+        }
+
+        gameStart = true;
+    }
+
+    public IEnumerator StageTimer(float time)
+    {
+        var delay = new WaitForSeconds(1.0f);
+        for (int i = Convert.ToInt32(time); i > 0; i--)
+        {
+            var min = Mathf.FloorToInt(i / 60);
+            var sec = Mathf.FloorToInt(i % 60);
+            
+            timer.text = string.Format("{0:00}:{1:00}", min, sec);
+            yield return delay;
+        }
+    }
 
     public void SetText()
     {

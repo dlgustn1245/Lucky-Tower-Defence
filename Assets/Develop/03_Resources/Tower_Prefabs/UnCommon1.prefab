@@ -39,6 +39,26 @@ PrefabInstance:
       propertyPath: m_labelHash
       value: 8.49173e+10
       objectReference: {fileID: 0}
+    - target: {fileID: 4130114406388283126, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: tower.grade
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130114406388283126, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: tower.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130114406388283126, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: tower.weight
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130114406388283126, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: tower.towerName
+      value: UnCommon01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130114406388283126, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+      propertyPath: tower.attackSpeed
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 4243595760788900032, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 
@@ -178,3 +198,37 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+--- !u!1 &6305353133612263650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8698957122616527109, guid: 780de6be0f75141ca96ec5c6c163d662, type: 3}
+  m_PrefabInstance: {fileID: 3403026066408956391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5228533900528514398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305353133612263650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d039142fcc5abf34fbe135cc45f04c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+    towerName: 
+    damage: 0
+    grade: 0
+    weight: 0
+    attackSpeed: 0
+    range: 0
+    price: 0
+  boundary:
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    yMax: 0
+  isClicked: 0
+  destination: {x: 0, y: 0}
+  towerAnim: {fileID: 0}
+  moveSpeed: 5

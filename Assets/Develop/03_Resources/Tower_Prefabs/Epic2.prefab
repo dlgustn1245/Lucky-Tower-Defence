@@ -191,7 +191,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.595213, y: 3.2887838}
   m_EdgeRadius: 0
---- !u!114 &-1341671098290781651
+--- !u!114 &-3388271108128486673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,6 +199,35 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5435471347000044387}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d039142fcc5abf34fbe135cc45f04c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+    towerName: Epic02
+    damage: 80
+    grade: 13
+    weight: 3
+    attackSpeed: 0.5
+    range: 2.5
+    price: 10
+  boundary:
+    xMin: -2.5
+    xMax: 2.5
+    yMin: -2.75
+    yMax: 2.5
+  isClicked: 0
+  destination: {x: 0, y: 0}
+  towerAnim: {fileID: 5349330658361867005}
+  moveSpeed: 5
+--- !u!114 &-1341671098290781651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435471347000044387}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7fe258a9c6f2c64eb4dfb3365046808, type: 3}
   m_Name: 
@@ -211,7 +240,6 @@ MonoBehaviour:
     attackSpeed: 0.5
     range: 7
     price: 10
-  key: Epic02
   boundary:
     xMin: -2.5
     xMax: 2.5

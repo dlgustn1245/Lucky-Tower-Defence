@@ -205,7 +205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4007037466947174848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7fe258a9c6f2c64eb4dfb3365046808, type: 3}
   m_Name: 
@@ -218,7 +218,35 @@ MonoBehaviour:
     attackSpeed: 1.25
     range: 7
     price: 10
-  key: Unique03
+  boundary:
+    xMin: -2.5
+    xMax: 2.5
+    yMin: -2.75
+    yMax: 2.5
+  isClicked: 0
+  destination: {x: 0, y: 0}
+  towerAnim: {fileID: 3947920575062790238}
+  moveSpeed: 5
+--- !u!114 &6116489207045067733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007037466947174848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d039142fcc5abf34fbe135cc45f04c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+    towerName: Unique03
+    damage: 40
+    grade: 11
+    weight: 5
+    attackSpeed: 1.25
+    range: 2.5
+    price: 10
   boundary:
     xMin: -2.5
     xMax: 2.5

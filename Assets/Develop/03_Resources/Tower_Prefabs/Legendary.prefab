@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_Name
-      value: Legendary1
+      value: Legendary
       objectReference: {fileID: 0}
     - target: {fileID: 2627549628363405301, guid: 3afd6a8e518c643a9ad30602da3508f6, type: 3}
       propertyPath: m_TagString
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6962259479661937151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7fe258a9c6f2c64eb4dfb3365046808, type: 3}
   m_Name: 
@@ -203,7 +203,35 @@ MonoBehaviour:
     attackSpeed: 0.5
     range: 7
     price: 10
-  key: Legendary
+  boundary:
+    xMin: -2.5
+    xMax: 2.5
+    yMin: -2.75
+    yMax: 2.5
+  isClicked: 0
+  destination: {x: 0, y: 0}
+  towerAnim: {fileID: 7047259974742511713}
+  moveSpeed: 5
+--- !u!114 &6252447308163285094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962259479661937151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d039142fcc5abf34fbe135cc45f04c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+    towerName: Legendary
+    damage: 400
+    grade: 14
+    weight: 0.5
+    attackSpeed: 0.5
+    range: 2.5
+    price: 10
   boundary:
     xMin: -2.5
     xMax: 2.5
