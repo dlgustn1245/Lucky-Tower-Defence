@@ -127,7 +127,6 @@ public class TowerController_Test : MonoBehaviour
             for (int i = 0; i < GameManager.Instance.monsterList.Count; i++)
             {
                 float distance = Vector2.Distance(GameManager.Instance.monsterList[i].transform.position, this.transform.position);
-                print(distance);
                 if (distance <= tower.range && distance <= minDistance)
                 {
                     minDistance = distance;
